@@ -1,0 +1,21 @@
+.headerContainer{
+    background-color: rgb(173, 173, 255) ;
+    padding: 3vh 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.companyName{
+    margin-left: 30px;
+    font-size: 40px;
+}
+
+.auth{
+    display: flex;
+    margin-right: 30px;
+}
+.authBtn{
+    margin-left: 20px;
+    cursor: pointer;
+} 

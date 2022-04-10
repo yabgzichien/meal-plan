@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+
+.homeContainer{
+    background-image: url('../../public/food1.jpg');
+    height: 90vh;
+}
+
+.homeTextContainer{
+    padding: 200px;
+}
+
+
+.planHome{
+    font-size: 60px;
+
+    font-family: 'Secular One', sans-serif;
+}
