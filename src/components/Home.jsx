@@ -11,33 +11,34 @@ import SearchContext from '../SearchContext'
 const Home = () => {
 
   const { meals, setMeals } = useContext(SearchContext)
-  const [random, setRandom] = useState([])
+
 
   useEffect(()=>{
     let randomizeMeals = []
-    axios.get('https://www.themealdb.com/api/json/v1/1/search.php?s=').then(res=>{
-        setMeals(res.data.meals)
-    }).catch(err=>{
-        console.log(err)
-    })
+    // axios.get('https://www.themealdb.com/api/json/v1/1/search.php?s=').then(res=>{
+    //     setMeals(res.data.meals)
+    // }).catch(err=>{
+    //     console.log(err)
+    // })
 
     const fetchRandom = async() =>{
-        await axios.get('https://www.themealdb.com/api/json/v1/1/random.php').then(res=>{
-            randomizeMeals.push(res.data.meals)
-            console.log(res.data.meals)
-        })
-        setRandom(randomizeMeals)
+        for(let i = 0; i < 15; i++)
+            await axios.get('https://www.themealdb.com/api/json/v1/1/random.php').then(res=>{
+                randomizeMeals.push(res.data.meals[0])
+            })
+
+        setMeals(randomizeMeals)
     }
 
     fetchRandom()
 
   }, [])
 
-  console.log(random)
+  console.log(meals)
   return (
     <>
     <Header auth={true} />
-    <div>
+    <div className='homeCContainer'>
         <div className='mealsContainerBox'>
             {
                 meals.map(meal=> 

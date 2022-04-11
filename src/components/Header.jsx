@@ -9,6 +9,8 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import Avatar from '@mui/material/Avatar';
+import EventNoteIcon from '@mui/icons-material/EventNote';
 
 const Header = ({ auth }) => {
   const [open, setOpen] = useState(false);
@@ -56,8 +58,8 @@ const Header = ({ auth }) => {
         </DialogActions>
       </Dialog>
         <div className='auth'>
-         <h3 className='authBtn'> </h3>
-         <h3 className='authBtn'></h3>
+          <EventNoteIcon style={{marginLeft: '20px'}} />
+          <Avatar style={{marginLeft: '20px'}}/>
         </div>
        
     </div> :

@@ -15,6 +15,7 @@
 .auth{
     display: flex;
     margin-right: 30px;
+    align-items: center;
 }
 .authBtn{
     margin-left: 20px;

@@ -3,3 +3,7 @@
     flex-wrap: wrap;
     justify-content:center;
  }
+
+ .homeCContainer{
+     background-image: url('../../public/food1.jpg');
+ }
