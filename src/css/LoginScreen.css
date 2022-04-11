@@ -1,0 +1,60 @@
+.authContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('../../public/food1.jpg');
+}
+
+.authBox{
+    width: 400px;
+    height: 500px;
+    background-color: #d9fff2;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+.authTitle{
+    font-weight: 800;
+    font-family: 'Secular One', sans-serif;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.authForm{
+    display: flex;
+    justify-content:center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.authTextInput{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.or{
+    margin-top: 30px;
+    text-align: center;
+}
+
+.google{
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    padding: 5px 20px;
+    cursor: pointer;
+}
+
+.iconsContainer{
+    display: flex;
+    justify-content: center;
+    margin-top:30px;
+}
+
+.newHere{
+    font-size: 16px;
+    margin-left: 20px;
+    margin-top: 30px;
+}

@@ -1,3 +1,4 @@
+import React, { useState } from 'react'
 import './App.css';
 
 // components
@@ -15,16 +16,20 @@ import {
   Link
 } from "react-router-dom";
 
+import SearchContext from './SearchContext'
+
 function App() {
+  const [search, setSearch] = useState('')
+  const [meals, setMeals] = useState([])
+
   return (
+    <SearchContext.Provider value={{search, setSearch, meals, setMeals}} >
     <Router>
-      <Header />
-      <Switch>
+      
+      <Switch>       
         <Route path='/login'>
           <LoginScreen />
         </Route>
-      </Switch>
-      <Switch>
         <Route path='/register'>
           <RegisterScreen />
         </Route>
@@ -33,6 +38,7 @@ function App() {
         </Route>
       </Switch>
     </Router>
+    </SearchContext.Provider>
   );
 }
 

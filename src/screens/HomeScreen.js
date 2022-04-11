@@ -7,10 +7,20 @@ import WebIcon from '@mui/icons-material/Web';
 
 import { Link } from 'react-router-dom'
 
+import Header from '../components/Header'
+import Home from '../components/Home'
+
 const HomeScreen = () => {
   
 
   return (
+      <>
+   
+      { true ? 
+        <Home />
+      :
+      <>
+      <Header />
       <div className='home'>
         <div className='homeContainer'>
     
@@ -22,11 +32,12 @@ const HomeScreen = () => {
                 <div className=''>
                 <Button variant="contained" color="success" style={{marginTop: '5px'}}> <AndroidIcon />  <p style={{marginLeft: '10px'}}>Android </p> </Button>
                     <p style={{marginTop: '5px'}}>or</p>
-                <Button variant="contained" style={{marginTop: '5px'}}  > 
-                    <Link to='/home' style={{display: 'flex', alignItems: 'center'}}>
-                        Continue On The Web <WebIcon />
-                    </Link>
-                </Button>
+                
+                <Link to='/login' style={{display: 'flex', alignItems: 'center'}}>
+                    <Button variant="contained" style={{marginTop: '5px'}}  > 
+                            Continue On The Web <WebIcon />  
+                    </Button>
+                </Link>
                 </div>
 
 
@@ -34,6 +45,9 @@ const HomeScreen = () => {
 
         </div>
       </div>
+        </>
+        }
+      </>
   )
 }
 
