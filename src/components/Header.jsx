@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+
+import axios from 'axios'
 
 import '../css/Header.css'
 import SearchIcon from '@mui/icons-material/Search';
@@ -11,9 +13,26 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Avatar from '@mui/material/Avatar';
 import EventNoteIcon from '@mui/icons-material/EventNote';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import LogoutIcon from '@mui/icons-material/Logout';
 
-const Header = ({ auth }) => {
+import SearchContext from '../SearchContext'
+
+import { auth } from '../firebase'
+import { signOut } from "firebase/auth";
+
+const Header = ({ isAuth }) => {
+  const { search, setSearch, meals, setMeals } = useContext(SearchContext)
+
+  const [anchorEl, setAnchorEl] = useState(null)
   const [open, setOpen] = useState(false);
+
+  const logOut = () =>{
+    signOut(auth).then(()=>{
+      console.log('signed out')
+    })
+  }
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -22,17 +41,42 @@ const Header = ({ auth }) => {
   const handleClose = () => {
     setOpen(false);
   };
+
+  // have bug with this function
+  const submitSearchMeal = (e) =>{
+    e.preventDefault()
+    searchMeal()
+   }
+  
+  const searchMeal = () =>{
+    axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`).then(res=>{
+      setMeals(res.data.meals)
+    }).catch(err=>{
+      console.log(err.message)
+    })
+  }
+
+  const category = (params) =>{
+    axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${params}`).then(res=>{
+      setMeals(res.data.meals)
+    }).catch(err=>{
+      console.log(err.message)
+    })
+  }
+
+
+
   return (
     <>
-    { auth ?
+    { isAuth ?
     <div className='headerContainer'>
         <div className='nameContainer'>
           <h2 className='companyName'>fsdfsdffsdrwe</h2>
           <h2 > Recipe</h2>
         </div>
-        <form className='searchContainer'>
-          <input className='headerSearchInput' />
-          <SearchIcon style={{padding: '10px', cursor: 'pointer'}} />
+        <form className='searchContainer'onSubmit={submitSearchMeal} >
+          <input className='headerSearchInput' onChange={e=> setSearch(e.target.value)} />
+          <SearchIcon onClick={searchMeal} style={{padding: '10px', cursor: 'pointer'}} />
           <FilterAltIcon onClick={handleClickOpen} style={{padding: '10px', cursor: 'pointer'}}/>
         </form>
 
@@ -43,12 +87,20 @@ const Header = ({ auth }) => {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          {"Filter By"}
+          {"Filter By Categories"}
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-             <button> Vegan </button>
-             <button>  </button>
+            <div className='categoriesContainer'>
+             <button className='categoryBtn vegan' onClick={()=> category('Vegan')} > Vegan </button>
+             <button className='categoryBtn breakfast' onClick={()=> category('Breakfast')}> Breakfast </button>
+             <button className='categoryBtn dessert' onClick={()=> category('Dessert')}> Dessert </button>
+             <button className='categoryBtn chicken' onClick={()=> category('Chicken')}>Chicken</button>
+             <button className='categoryBtn lamb' onClick={()=> category('Lamb')}>Lamb</button>
+             <button className='categoryBtn pork' onClick={()=> category('Pork')}>Pork</button>
+             <button className='categoryBtn seafood' onClick={()=> category('Seafood')}>Seafood</button>
+             <button className='categoryBtn beef' onClick={()=> category('Beef')}>Beef</button>
+            </div>
           </DialogContentText>
         </DialogContent>
         <DialogActions>
@@ -59,7 +111,16 @@ const Header = ({ auth }) => {
       </Dialog>
         <div className='auth'>
           <EventNoteIcon style={{marginLeft: '20px'}} />
-          <Avatar style={{marginLeft: '20px'}}/>
+          <Avatar onClick={(e)=> setAnchorEl(e.currentTarget)} style={{marginLeft: '20px', cursor: 'pointer'}}/>
+          <Menu  
+            anchorEl={anchorEl}
+            open={Boolean(anchorEl)}
+            onClose={()=> setAnchorEl(null)}
+          >
+            <MenuItem>
+              <p className='menuOptions' onClick={logOut} >Logout <LogoutIcon /> </p>
+            </MenuItem>
+          </Menu>
         </div>
        
     </div> :

@@ -47,3 +47,48 @@
     align-items: center;
     background-color: white;
 }
+
+.categoriesContainer{
+    width: 300px;
+    height: 290px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.categoryBtn{
+    padding: 15px 10px;
+    cursor: pointer;
+    margin: 10px;
+    width: 100px;
+}
+
+.vegan{
+    object-fit: scale-down;
+    background-image: url('https://www.healthyeating.org/images/default-source/home-0.0/nutrition-topics-2.0/general-nutrition-wellness/2-2-2-2foodgroups_vegetables_detailfeature.jpg?sfvrsn=226f1bc7_6');
+}
+
+.breakfast{
+
+}
+
+.chicken{
+    object-fit: scale-down;
+    background-image: url('https://www.themealdb.com/images/category/chicken.png');
+}
+
+.beef{
+    object-fit:contain;
+    background-image: url('https://www.themealdb.com/images/category/beef.png');
+}
+
+.dessert{
+    background-image: url('https://www.themealdb.com/images/category/dessert.png');
+}
+
+.menuOptions{
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+}

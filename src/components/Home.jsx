@@ -12,7 +12,6 @@ const Home = () => {
 
   const { meals, setMeals } = useContext(SearchContext)
 
-
   useEffect(()=>{
     let randomizeMeals = []
     // axios.get('https://www.themealdb.com/api/json/v1/1/search.php?s=').then(res=>{
@@ -22,7 +21,7 @@ const Home = () => {
     // })
 
     const fetchRandom = async() =>{
-        for(let i = 0; i < 15; i++)
+        for(let i = 0; i < 12; i++)
             await axios.get('https://www.themealdb.com/api/json/v1/1/random.php').then(res=>{
                 randomizeMeals.push(res.data.meals[0])
             })
@@ -34,15 +33,14 @@ const Home = () => {
 
   }, [])
 
-  console.log(meals)
   return (
     <>
-    <Header auth={true} />
+    <Header isAuth={true} />
     <div className='homeCContainer'>
         <div className='mealsContainerBox'>
             {
                 meals.map(meal=> 
-                <Meals image={meal.strMealThumb} name={meal.strMeal} />)
+                <Meals image={meal.strMealThumb} name={meal.strMeal} key={meal.idMeal} />)
             }
         </div>
     </div>

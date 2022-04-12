@@ -18,25 +18,37 @@ import {
 
 import SearchContext from './SearchContext'
 
+// firebase
+import { auth } from './firebase'
+import { useAuthState } from 'react-firebase-hooks/auth';
+
 function App() {
   const [search, setSearch] = useState('')
   const [meals, setMeals] = useState([])
 
+  const [user, loading] = useAuthState(auth)
+
   return (
     <SearchContext.Provider value={{search, setSearch, meals, setMeals}} >
     <Router>
-      
-      <Switch>       
-        <Route path='/login'>
-          <LoginScreen />
-        </Route>
-        <Route path='/register'>
-          <RegisterScreen />
-        </Route>
-        <Route path='/'>
-          <HomeScreen />
-        </Route>
-      </Switch>
+      {user ? 
+      <Switch>
+        <HomeScreen auth={true} />
+      </Switch> :
+        <Switch>       
+            <Route path='/login'>
+              <LoginScreen />
+            </Route>
+            <Route path='/register'>
+              <RegisterScreen />
+            </Route>
+            <Route path='/'>
+              <HomeScreen auth={false} />
+            </Route>
+          </Switch>
+
+      }
+
     </Router>
     </SearchContext.Provider>
   );

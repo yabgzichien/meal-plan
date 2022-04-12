@@ -6,4 +6,5 @@
 
  .homeCContainer{
      background-image: url('../../public/food1.jpg');
+     min-height: 90vh;
  }

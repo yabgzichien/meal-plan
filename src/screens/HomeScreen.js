@@ -10,17 +10,17 @@ import { Link } from 'react-router-dom'
 import Header from '../components/Header'
 import Home from '../components/Home'
 
-const HomeScreen = () => {
+const HomeScreen = ({ auth }) => {
   
 
   return (
       <>
    
-      { true ? 
+      { auth ? 
         <Home />
       :
       <>
-      <Header />
+      <Header isAuth={false} />
       <div className='home'>
         <div className='homeContainer'>
     
