@@ -20,6 +20,8 @@ import {
 import SearchContext from './SearchContext'
 import PlanContext from './PlanContext'
 
+import CircularProgress from '@mui/material/CircularProgress';
+
 // firebase
 import { auth } from './firebase'
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -32,7 +34,7 @@ function App() {
   const [user, loading] = useAuthState(auth)
 
   return (
-
+    <>{ loading ? <CircularProgress /> :
     <SearchContext.Provider value={{search, setSearch, meals, setMeals}} >
     <Router>
       {user ? 
@@ -62,6 +64,8 @@ function App() {
 
     </Router>
     </SearchContext.Provider>
+    }
+    </>
   );
 }
 

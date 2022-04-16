@@ -1,0 +1,12 @@
+.ingredientsContainer{
+    display: flex;
+    flex-direction:  column-reverse;
+    justify-content:center;
+    align-items: center;
+    cursor: pointer;
+    margin: 0 30px;
+}
+
+.ingredientsContainer:hover{
+    color: blue;
+}

@@ -85,6 +85,8 @@ const MealInfoScreen = () => {
         return <img className='nationalFlag' src='https://www.shiplocation.com/Flags%20-%20normal/uu.png' />
       case 'Vietnamese':
         return <img className='nationalFlag' src='https://www.worldometers.info/img/flags/vm-flag.gif' />
+      case 'Turkish':
+        return <img className='nationalFlag' src='https://www.worldometers.info/img/flags/tu-flag.gif' />
       default:
         return
     }
