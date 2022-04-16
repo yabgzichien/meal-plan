@@ -1,0 +1,66 @@
+.mealScreenContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+
+}
+
+.whiteContainer{
+    padding: 20px 150px;
+    background-color: white;
+    margin: 40px 0;
+}
+
+.mealName{
+    text-align: center;
+    margin: 30px 20px;
+    font-size: 60px;
+}
+
+.mealScreenImage{
+    max-width: 1200px;
+    max-height: 900px;
+    object-fit: cover;
+    margin: 30px;
+}
+
+.instruction{
+    width: 700px;
+    text-indent: 10px;
+    font-weight: 200;
+    text-justify: distribute-all-lines;
+    margin-right: 30px;
+    background-color: white;
+}
+
+.instructionContainer{
+    display: flex;
+}
+
+.addToYourPlan{
+    padding: 10px;
+    cursor: pointer;
+    margin: 70px;
+}
+
+.ingredientContainer{
+    background-color: white;
+    padding: 80px;
+}
+
+p{
+    font-weight: 200;
+}
+
+.nationalFlag{
+    width: 100px;
+    object-fit:contain;
+    margin: 10px;
+}
+
+.infoTitleContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -17,6 +17,8 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import LogoutIcon from '@mui/icons-material/Logout';
 
+import { Link } from 'react-router-dom'
+
 import SearchContext from '../SearchContext'
 
 import { auth } from '../firebase'
@@ -49,6 +51,7 @@ const Header = ({ isAuth }) => {
    }
   
   const searchMeal = () =>{
+
     axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`).then(res=>{
       setMeals(res.data.meals)
     }).catch(err=>{
@@ -71,7 +74,10 @@ const Header = ({ isAuth }) => {
     { isAuth ?
     <div className='headerContainer'>
         <div className='nameContainer'>
-          <h2 className='companyName'>fsdfsdffsdrwe</h2>
+          <Link to='/' style={{textDecoration: 'none', color: 'black'}}>
+            <h2 className='companyName'>fsdfsdffsdrwe</h2>
+          </Link>
+          
           <h2 > Recipe</h2>
         </div>
         <form className='searchContainer'onSubmit={submitSearchMeal} >
@@ -125,7 +131,9 @@ const Header = ({ isAuth }) => {
        
     </div> :
     <div className='headerContainer'>
-        <h2 className='companyName'> MealPlan</h2>
+          <Link to='/' style={{textDecoration: 'none', color: 'black'}}>
+            <h2 className='companyName'>fsdfsdffsdrwe</h2>
+          </Link>
 
         <div className='auth'>
          <h3 className='authBtn'> Login </h3>

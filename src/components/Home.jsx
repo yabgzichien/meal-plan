@@ -38,10 +38,14 @@ const Home = () => {
     <Header isAuth={true} />
     <div className='homeCContainer'>
         <div className='mealsContainerBox'>
+          <h3>Random Meals</h3>
+          <div className='randomMeals'>
+            
             {
                 meals.map(meal=> 
-                <Meals image={meal.strMealThumb} name={meal.strMeal} key={meal.idMeal} />)
+                <Meals mealId={meal.idMeal} image={meal.strMealThumb} name={meal.strMeal} key={meal.idMeal} />)
             }
+          </div>
         </div>
     </div>
     </>
