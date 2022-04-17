@@ -9,6 +9,7 @@
     margin-bottom: 30px;
  }
 
+
  .randomMeals{
     width: 100%;
     display: flex;
@@ -19,4 +20,28 @@
  .homeCContainer{
      background-image: url('../../public/food1.jpg');
      min-height: 90vh;
+ }
+
+ .alphabetsContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    padding: 20px 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 30px;
+    flex-direction: column;
+    align-items: center;
+ }
+
+ .alphabets{
+     display: block;
+ }
+
+ .alphabet{
+     padding: 5px;
+     font-size: 16px;
+     margin: 0 3px;
+     cursor: pointer;
  }

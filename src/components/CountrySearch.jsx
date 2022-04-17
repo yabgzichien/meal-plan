@@ -1,6 +1,8 @@
 import React from 'react'
 import '../css/CountrySearch.css'
 
+import { Link } from 'react-router-dom' 
+
 const CountrySearch = ({ countryName }) => {
 
     const countryFlag = (country) =>{
@@ -54,7 +56,7 @@ const CountrySearch = ({ countryName }) => {
           case 'Tunisian':
             return <img className='nationalFlag' src='https://www.worldometers.info/img/flags/ts-flag.gif' />
           case 'Unknown':
-            return <img className='nationalFlag' src='https://www.shiplocation.com/Flags%20-%20normal/uu.png' />
+            return <img className='nationalFlag' src='dsadas' />
           case 'Vietnamese':
             return <img className='nationalFlag' src='https://www.worldometers.info/img/flags/vm-flag.gif' />
           case 'Turkish':
@@ -65,10 +67,12 @@ const CountrySearch = ({ countryName }) => {
       }
     
   return (
-    <div className='countriesContainer'>
-        { countryFlag(countryName.strArea) }
-        <p>{ countryName.strArea }</p>
-    </div>
+    <Link to={`/countries/${countryName.strArea}`} style={{textDecoration: 'none', color: 'black'}}>
+      <div className='countriesContainer'>
+          { countryFlag(countryName.strArea) }
+          <p>{ countryName.strArea }</p>
+      </div>
+    </Link>
   )
 }
 

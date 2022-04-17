@@ -9,6 +9,9 @@ import HomeScreen from './screens/HomeScreen'
 import LoginScreen from './screens/LoginScreen'
 import RegisterScreen from './screens/RegisterScreen'
 import MealInfoScreen from './screens/MealInfoScreen'
+import IngreSearchScreen from './screens/IngreSearchScreen'
+import CountrySearchScreen from './screens/CountrySearchScreen'
+import AlphabetSearchScreen from './screens/AlphabetSearchScreen';
 
 import {
   BrowserRouter as Router,
@@ -42,6 +45,15 @@ function App() {
       <Switch>
         <Route path='/info/:id'>
           <MealInfoScreen />
+        </Route>
+        <Route path='/ingredients/:ingre'>
+          <IngreSearchScreen />
+        </Route>
+        <Route path='/countries/:country' > 
+          <CountrySearchScreen />
+        </Route>
+        <Route path='/alphabet/:char'>
+          <AlphabetSearchScreen />
         </Route>
         <Route path='/'>
           <HomeScreen auth={true} />
