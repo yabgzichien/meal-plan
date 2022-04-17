@@ -12,6 +12,7 @@ import MealInfoScreen from './screens/MealInfoScreen'
 import IngreSearchScreen from './screens/IngreSearchScreen'
 import CountrySearchScreen from './screens/CountrySearchScreen'
 import AlphabetSearchScreen from './screens/AlphabetSearchScreen';
+import SearchScreen from './screens/SearchScreen';
 
 import {
   BrowserRouter as Router,
@@ -43,6 +44,9 @@ function App() {
       {user ? 
       <PlanContext.Provider value={{plans, setPlans}}>
       <Switch>
+        <Route path='/search/:search'>
+          <SearchScreen />
+        </Route>
         <Route path='/info/:id'>
           <MealInfoScreen />
         </Route>

@@ -17,7 +17,8 @@ const Home = () => {
 
   const history = useHistory()
 
-  const { meals, setMeals } = useContext(SearchContext)
+ // const { meals, setMeals } = useContext(SearchContext)
+  const [meals, setMeals] = useState([]) 
   const [randomIngredient, setRandomIngredient] = useState([])
   const [popularIngre, setPopularIngre] = useState([])
   const [countriesName, setCountriesName] = useState([])

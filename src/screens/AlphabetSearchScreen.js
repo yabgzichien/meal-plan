@@ -7,6 +7,7 @@ import Meals from '../components/Meals'
 import axios from 'axios'
 
 import '../css/Alphabets.css'
+import Header from '../components/Header'
 
 const AlphabetSearchScreen = () => {
   const { char } = useParams()
@@ -29,7 +30,7 @@ const AlphabetSearchScreen = () => {
 
   return (
     <>
-        <MealInfoHeader />
+        <Header isAuth={true}/>
         <div className='alphaSearchContainer'>
             <div className='alphaTitleContainer'>
                 <h1 className='alphaTitle'>{char.toUpperCase()}</h1>

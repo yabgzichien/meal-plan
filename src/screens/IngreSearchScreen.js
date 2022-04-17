@@ -9,6 +9,7 @@ import Meals from '../components/Meals'
 import { CircularProgress } from '@mui/material'
 
 import '../css/IngreSearchScreen.css'
+import Header from '../components/Header'
 
 const IngreSearchScreen = () => {
   
@@ -48,7 +49,7 @@ const IngreSearchScreen = () => {
 
   return (
     <>
-      <MealInfoHeader />
+      <Header isAuth={true} />
       <div className='ingreSearchContainer'>
         { !loadingDes ? 
         <div className='ingreDesContainer'>

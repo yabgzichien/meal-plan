@@ -7,6 +7,7 @@ import '../css/CountrySearchScreen.css'
 import Meals from '../components/Meals'
 
 import MealInfoHeader from '../components/MealInfoHeader'
+import Header from '../components/Header'
 
 const CountrySearchScreen = () => {
   
@@ -91,7 +92,7 @@ const CountrySearchScreen = () => {
 
   return (
     <>
-        <MealInfoHeader />
+        <Header isAuth={true} />
         <div className='countrySearchContainer'>
             <div className='countryTitleContainer'>
                 {countryFlag(country)} { country }

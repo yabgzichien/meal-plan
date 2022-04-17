@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom'
 
 import '../css/MealInfoScreen.css'
 import MealInfoHeader from '../components/MealInfoHeader'
+import Header from '../components/Header'
 
 const MealInfoScreen = () => {
 
@@ -94,7 +95,7 @@ const MealInfoScreen = () => {
 
   return (
     <>
-    <MealInfoHeader isAuth={true} />
+    <Header isAuth={true} />
     <div className='mealScreenContainer dessertBackgroundImage'>
         <div className='whiteContainer'>
         <div className='infoTitleContainer'>

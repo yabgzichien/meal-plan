@@ -17,7 +17,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import LogoutIcon from '@mui/icons-material/Logout';
 
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 import SearchContext from '../SearchContext'
 
@@ -25,6 +25,7 @@ import { auth } from '../firebase'
 import { signOut } from "firebase/auth";
 
 const Header = ({ isAuth }) => {
+  const history = useHistory()
   const { search, setSearch, meals, setMeals } = useContext(SearchContext)
 
   const [anchorEl, setAnchorEl] = useState(null)
@@ -43,20 +44,14 @@ const Header = ({ isAuth }) => {
   const handleClose = () => {
     setOpen(false);
   };
-
-  // have bug with this function
-  const submitSearchMeal = (e) =>{
-    e.preventDefault()
-    searchMeal()
-   }
   
   const searchMeal = () =>{
-
-    axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`).then(res=>{
-      setMeals(res.data.meals)
-    }).catch(err=>{
-      console.log(err.message)
-    })
+    history.push(`/search/${search}`)
+    // axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`).then(res=>{
+    //   setMeals(res.data.meals)
+    // }).catch(err=>{
+    //   console.log(err.message)
+    // })
   }
 
   const category = (params) =>{
@@ -80,7 +75,7 @@ const Header = ({ isAuth }) => {
           
           <h2 > Recipe</h2>
         </div>
-        <form className='searchContainer'onSubmit={submitSearchMeal} >
+        <form className='searchContainer'onSubmit={searchMeal} >
           <input className='headerSearchInput' onChange={e=> setSearch(e.target.value)} />
           <SearchIcon onClick={searchMeal} style={{padding: '10px', cursor: 'pointer'}} />
           <FilterAltIcon onClick={handleClickOpen} style={{padding: '10px', cursor: 'pointer'}}/>
