@@ -1,11 +1,9 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 
-import axios from 'axios'
 
 import '../css/Header.css'
 import SearchIcon from '@mui/icons-material/Search';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
-import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
@@ -20,16 +18,22 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import { Link, useHistory } from 'react-router-dom'
 
 import SearchContext from '../SearchContext'
+import UserContext from '../UserContext'
 
 import { auth } from '../firebase'
 import { signOut } from "firebase/auth";
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { getUserData } from '../utils/utils';
 
 const Header = ({ isAuth }) => {
   const history = useHistory()
   const { search, setSearch, meals, setMeals } = useContext(SearchContext)
+  const [user] = useAuthState(auth)
 
   const [anchorEl, setAnchorEl] = useState(null)
   const [open, setOpen] = useState(false);
+
+  const { userObj, setUserObj } = useContext(UserContext)
 
   const logOut = () =>{
     signOut(auth).then(()=>{
@@ -53,7 +57,15 @@ const Header = ({ isAuth }) => {
     history.push(`/category/${params}`)
   }
 
+  useEffect(()=>{
+    //if(user && userObj === {}){
+      getUserData(user.uid).then(res=>{
+        setUserObj(res)
+      })
+   //}
+  }, [])
 
+console.log(userObj)
 
   return (
     <>
@@ -103,7 +115,12 @@ const Header = ({ isAuth }) => {
             <EventNoteIcon style={{marginLeft: '20px'}} />
           </Link>
           
-          <Avatar onClick={(e)=> setAnchorEl(e.currentTarget)} style={{marginLeft: '20px', cursor: 'pointer'}}/>
+          { userObj !== {} ?
+           <Avatar onClick={(e)=> setAnchorEl(e.currentTarget)} style={{marginLeft: '20px', cursor: 'pointer'}} src={userObj.profilePicture} /> :
+            <Avatar onClick={(e)=> setAnchorEl(e.currentTarget)} style={{marginLeft: '20px', cursor: 'pointer'}}/>
+          }
+
+          
           <Menu  
             anchorEl={anchorEl}
             open={Boolean(anchorEl)}

@@ -25,6 +25,7 @@ import {
 
 import SearchContext from './SearchContext'
 import PlanContext from './PlanContext'
+import UserContext from './UserContext';
 
 import CircularProgress from '@mui/material/CircularProgress';
 
@@ -38,6 +39,7 @@ function App() {
   const [plans, setPlans] = useState([])
   const [popularIngre, setPopularIngre] = useState([])
   const [countriesName, setCountriesName] = useState([])
+  const [userObj, setUserObj] = useState({})
 
   const [randomIngredient, setRandomIngredient] = useState([])
 
@@ -53,6 +55,7 @@ function App() {
     <SearchContext.Provider value={searchContextValue} >
     <Router>
       {user ? 
+      <UserContext.Provider value={{userObj, setUserObj}}>
       <PlanContext.Provider value={{plans, setPlans}}>
       
       <Switch>
@@ -81,7 +84,8 @@ function App() {
           <HomeScreen auth={true} />
         </Route>
       </Switch>
-      </PlanContext.Provider> :
+      </PlanContext.Provider>
+      </UserContext.Provider> :
         <Switch>       
             <Route path='/login'>
               <LoginScreen />
