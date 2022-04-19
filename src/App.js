@@ -13,6 +13,8 @@ import IngreSearchScreen from './screens/IngreSearchScreen'
 import CountrySearchScreen from './screens/CountrySearchScreen'
 import AlphabetSearchScreen from './screens/AlphabetSearchScreen';
 import SearchScreen from './screens/SearchScreen';
+import CategorySearchScreen from './screens/CategorySearchScreen'
+import PlanScreen from './screens/PlanScreen';
 
 import {
   BrowserRouter as Router,
@@ -31,19 +33,35 @@ import { auth } from './firebase'
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 function App() {
-  const [search, setSearch] = useState('')
+  //const [search, setSearch] = useState('')
   const [meals, setMeals] = useState([])
   const [plans, setPlans] = useState([])
+  const [popularIngre, setPopularIngre] = useState([])
+  const [countriesName, setCountriesName] = useState([])
+
+  const [randomIngredient, setRandomIngredient] = useState([])
 
   const [user, loading] = useAuthState(auth)
 
+  const searchContextValue = {
+    meals, setMeals, randomIngredient, setRandomIngredient, popularIngre, setPopularIngre,
+    countriesName, setCountriesName
+  }
+
   return (
     <>{ loading ? <CircularProgress /> :
-    <SearchContext.Provider value={{search, setSearch, meals, setMeals}} >
+    <SearchContext.Provider value={searchContextValue} >
     <Router>
       {user ? 
       <PlanContext.Provider value={{plans, setPlans}}>
+      
       <Switch>
+        <Route path='/plan'>
+          <PlanScreen />
+        </Route>
+        <Route path='/category/:search'>
+          <CategorySearchScreen />
+        </Route>
         <Route path='/search/:search'>
           <SearchScreen />
         </Route>

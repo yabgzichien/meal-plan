@@ -47,19 +47,10 @@ const Header = ({ isAuth }) => {
   
   const searchMeal = () =>{
     history.push(`/search/${search}`)
-    // axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`).then(res=>{
-    //   setMeals(res.data.meals)
-    // }).catch(err=>{
-    //   console.log(err.message)
-    // })
   }
 
   const category = (params) =>{
-    axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${params}`).then(res=>{
-      setMeals(res.data.meals)
-    }).catch(err=>{
-      console.log(err.message)
-    })
+    history.push(`/category/${params}`)
   }
 
 
@@ -105,13 +96,13 @@ const Header = ({ isAuth }) => {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} autoFocus>
-            Confirm
-          </Button>
         </DialogActions>
       </Dialog>
         <div className='auth'>
-          <EventNoteIcon style={{marginLeft: '20px'}} />
+          <Link to='/plan' style={{textDecoration: 'none', color: 'black'}}>
+            <EventNoteIcon style={{marginLeft: '20px'}} />
+          </Link>
+          
           <Avatar onClick={(e)=> setAnchorEl(e.currentTarget)} style={{marginLeft: '20px', cursor: 'pointer'}}/>
           <Menu  
             anchorEl={anchorEl}

@@ -17,11 +17,17 @@ const Home = () => {
 
   const history = useHistory()
 
- // const { meals, setMeals } = useContext(SearchContext)
-  const [meals, setMeals] = useState([]) 
-  const [randomIngredient, setRandomIngredient] = useState([])
-  const [popularIngre, setPopularIngre] = useState([])
-  const [countriesName, setCountriesName] = useState([])
+ const { meals, setMeals } = useContext(SearchContext)
+ const { randomIngredient, setRandomIngredient } = useContext(SearchContext)
+ const { popularIngre, setPopularIngre } = useContext(SearchContext)
+ const { countriesName, setCountriesName } = useContext(SearchContext)
+
+ // const [meals, setMeals] = useState([]) 
+ // const [randomIngredient, setRandomIngredient] = useState([])
+ // const [popularIngre, setPopularIngre] = useState([])
+ // const [countriesName, setCountriesName] = useState([])
+
+  // Loadings
   const [loadingRandomMeals, setLoadingRandomMeals] = useState(true)
   const [loadingPopularIngre, setLoadingPopularIngre] = useState(true)
   const [loadingRandomIngre, setLoadingRandomIngre] = useState(true)
@@ -33,46 +39,66 @@ const Home = () => {
     let popularIngredients = []
 
     const fetchRandom = async() =>{
+      if(meals.length === 0){
         for(let i = 0; i < 10; i++)
-            await axios.get('https://www.themealdb.com/api/json/v1/1/random.php').then(res=>{
-                randomizeMeals.push(res.data.meals[0])
-            })
+        await axios.get('https://www.themealdb.com/api/json/v1/1/random.php').then(res=>{
+            randomizeMeals.push(res.data.meals[0])
+        })
 
         setMeals(randomizeMeals)
         setLoadingRandomMeals(false)
+      }else{
+        setLoadingRandomMeals(false)
+        console.log(meals)
+      }
     }
 
     const fetchRandomIngredients = async() =>{
-      for(let i = 0; i < 6; i++){
-       await axios.get('https://www.themealdb.com/api/json/v1/1/list.php?i=list').then(res=>{
-          const randomIngredients = res.data.meals[Math.floor(Math.random()* 606)]
-          randomizeIngredients.push(randomIngredients)
-        })
+      if(randomIngredient.length === 0){
+        for(let i = 0; i < 6; i++){
+          await axios.get('https://www.themealdb.com/api/json/v1/1/list.php?i=list').then(res=>{
+             const randomIngredients = res.data.meals[Math.floor(Math.random()* 606)]
+             randomizeIngredients.push(randomIngredients)
+           })
+         }
+         setRandomIngredient(randomizeIngredients)
+         setLoadingRandomIngre(false)
+      }else{
+        setLoadingRandomIngre(false)
       }
-      setRandomIngredient(randomizeIngredients)
-      setLoadingRandomIngre(false)
+
   }
 
   const fetchPopularIngredients = async() =>{
-    for(let i = 0; i < 4; i++){
-      await axios.get('https://www.themealdb.com/api/json/v1/1/list.php?i=list').then(res=>{
-        popularIngredients.push(res.data.meals[i])
-      }).catch(err=>{
-        alert(err.message)
-      })
+    if(popularIngre.length === 0){
+      for(let i = 0; i < 4; i++){
+        await axios.get('https://www.themealdb.com/api/json/v1/1/list.php?i=list').then(res=>{
+          popularIngredients.push(res.data.meals[i])
+        }).catch(err=>{
+          alert(err.message)
+        })
+      }
+  
+      setPopularIngre(popularIngredients)
+      setLoadingPopularIngre(false)      
+    }else{
+      setLoadingPopularIngre(false)
     }
 
-    setPopularIngre(popularIngredients)
-    setLoadingPopularIngre(false)
   }
 
   const fetchCountries = async () =>{
-    await axios.get('https://www.themealdb.com/api/json/v1/1/list.php?a=list').then(res=>{
-      setCountriesName(res.data.meals)
-    }).catch(err=>{
-      alert(err.message)
-    })
-    setLoadingCountries(false)
+    if(countriesName.length === 0){
+      await axios.get('https://www.themealdb.com/api/json/v1/1/list.php?a=list').then(res=>{
+        setCountriesName(res.data.meals)
+      }).catch(err=>{
+        alert(err.message)
+      })
+      setLoadingCountries(false)
+    }else{
+      setLoadingCountries(false)
+    }
+
   }
 
     fetchCountries()
