@@ -18,8 +18,9 @@
     align-items: center;
 }
 .authBtn{
-    margin-left: 20px;
+    margin: 0px 10px;
     cursor: pointer;
+    padding:5px;
 } 
 
 .nameContainer{
@@ -91,4 +92,21 @@
     display: flex;
     align-items: center;
     justify-content:space-around;
+    padding: 10px;
+}
+
+.authBtnContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+@media screen and (max-width: 500px){ 
+.headerSearchInput{
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 20px;
+    border: none;
+}
 }

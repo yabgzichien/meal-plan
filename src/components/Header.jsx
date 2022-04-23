@@ -149,9 +149,13 @@ const Header = ({ isAuth }) => {
             open={Boolean(anchorEl)}
             onClose={()=> setAnchorEl(null)}
           >
-            <MenuItem>
+            <MenuItem style={{display: 'flex', flexDirection: 'column'}}>
               <p className='menuOptions' onClick={logOut} >Logout <LogoutIcon /> </p>
             </MenuItem>
+            <MenuItem>
+            <p className='menuOptions' onClick={()=> history.push('/hjkhjk')} >Click me pls </p>
+            </MenuItem>
+
           </Menu>
         </div>
        
@@ -162,8 +166,12 @@ const Header = ({ isAuth }) => {
           </Link>
 
         <div className='auth'>
-         <h3 className='authBtn' onClick={()=> history.push('/login')}> Login </h3>
-         <h3 className='authBtn'  onClick={()=> history.push('/register')}>Register</h3>
+          <div className='authBtnContainer'>
+            <h3 className='authBtn' onClick={()=> history.push('/login')}> Login </h3>
+            <h3 className='authBtn'  onClick={()=> history.push('/register')}>Register</h3>
+          </div>
+       
+
         </div>
        
     </div>

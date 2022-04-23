@@ -15,6 +15,7 @@ import AlphabetSearchScreen from './screens/AlphabetSearchScreen';
 import SearchScreen from './screens/SearchScreen';
 import CategorySearchScreen from './screens/CategorySearchScreen'
 import PlanScreen from './screens/PlanScreen';
+import EastherScreen from './screens/EastherScreen'
 
 import {
   BrowserRouter as Router,
@@ -60,6 +61,9 @@ function App() {
       <PlanContext.Provider value={{plans, setPlans}}>
       
       <Switch>
+        <Route path='/hjkhjk'>
+          <EastherScreen />
+        </Route>
         <Route path='/plan'>
           <PlanScreen />
         </Route>
