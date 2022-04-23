@@ -161,7 +161,8 @@ const Header = ({ isAuth }) => {
        
     </div> :
     <div className='headerContainer'>
-          <Link to='/' style={{textDecoration: 'none', color: 'black'}}>
+          <Link to='/' style={{textDecoration: 'none', color: 'black', display: 'flex', alignItems: 'center'}}>
+            <img src='https://djlunatique.com/wp-content/uploads/2022/01/Website-3-1.jpg' style={{width: '100px', height: '60px'}} />
             <h2 className='companyName'>fsdfsdffsdrwe</h2>
           </Link>
 
