@@ -1,10 +1,15 @@
 import { db } from "../firebase";
-import { addDoc, collection, getDocs, getDoc, doc } from "firebase/firestore";
+import { addDoc, collection, getDocs, getDoc, doc, setDoc, deleteDoc } from "firebase/firestore";
 import { v4 as uuidv4 } from 'uuid';
 
 const addToPlan = async (uid, planData) =>{
     // detects if the same plan data is already there
-    await addDoc(collection(db, 'plans', uid, 'plans'), planData)
+    //await addDoc(collection(db, 'plans', uid, 'plans'), planData)
+    await setDoc(doc(db, 'plans', uid, 'plans', planData.mealId), planData, { merge: true })
+}
+
+const deletePlan = async (uid, mealId) => {
+   await deleteDoc(doc(db, 'plans', uid, 'plans', mealId))
 }
 
 const fetchPlans = async (uid) =>{
@@ -27,4 +32,5 @@ const getUserData = async (uid) =>{
 }
 
 
-export { addToPlan, fetchPlans, getUserData }
+
+export { addToPlan, fetchPlans, getUserData, deletePlan }

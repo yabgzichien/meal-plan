@@ -53,9 +53,10 @@ function App() {
   return (
     <>{ loading ? <CircularProgress /> :
     <SearchContext.Provider value={searchContextValue} >
+      <UserContext.Provider value={{userObj, setUserObj}}>
     <Router>
       {user ? 
-      <UserContext.Provider value={{userObj, setUserObj}}>
+      
       <PlanContext.Provider value={{plans, setPlans}}>
       
       <Switch>
@@ -85,7 +86,7 @@ function App() {
         </Route>
       </Switch>
       </PlanContext.Provider>
-      </UserContext.Provider> :
+       :
         <Switch>       
             <Route path='/login'>
               <LoginScreen />
@@ -101,6 +102,7 @@ function App() {
       }
 
     </Router>
+    </UserContext.Provider>
     </SearchContext.Provider>
     }
     </>

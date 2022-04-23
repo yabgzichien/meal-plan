@@ -29,7 +29,7 @@ const Meals = ({ image, name, mealId }) => {
     }).catch(err=>{
       setSending(false)
       setErrMessage(err.message)
-    })  
+    }) 
   }
 
   return (

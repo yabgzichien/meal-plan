@@ -10,6 +10,7 @@ import { auth, db } from '../firebase'
 
 import Button from '@mui/material/Button';
 import { doc, setDoc } from "firebase/firestore"; 
+import Header from '../components/Header';
 
 const RegisterScreen = () => {
 
@@ -39,6 +40,8 @@ const RegisterScreen = () => {
   }
 
   return (
+    <>
+    <Header isAuth={false} />
     <div className='authContainer' >
         <div className='authBox' >
           <h1 className='authTitle'>Register</h1>
@@ -66,6 +69,7 @@ const RegisterScreen = () => {
           </p>
         </div>
     </div>
+    </>
   )
 }
 

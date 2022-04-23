@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react'
 
-
 import '../css/Header.css'
 import SearchIcon from '@mui/icons-material/Search';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
@@ -14,26 +13,31 @@ import EventNoteIcon from '@mui/icons-material/EventNote';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import LogoutIcon from '@mui/icons-material/Logout';
+import Badge from '@mui/material/Badge';
 
 import { Link, useHistory } from 'react-router-dom'
 
-import SearchContext from '../SearchContext'
 import UserContext from '../UserContext'
 
-import { auth } from '../firebase'
+import { auth, db } from '../firebase'
 import { signOut } from "firebase/auth";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { getUserData } from '../utils/utils';
+import { onSnapshot, collection } from 'firebase/firestore';
 
 const Header = ({ isAuth }) => {
   const history = useHistory()
-  const { search, setSearch, meals, setMeals } = useContext(SearchContext)
+  const [plans, setPlans] = useState([])
   const [user] = useAuthState(auth)
+
+  const [search, setSearch] = useState('')
 
   const [anchorEl, setAnchorEl] = useState(null)
   const [open, setOpen] = useState(false);
 
+  
   const { userObj, setUserObj } = useContext(UserContext)
+  
 
   const logOut = () =>{
     signOut(auth).then(()=>{
@@ -57,15 +61,27 @@ const Header = ({ isAuth }) => {
     history.push(`/category/${params}`)
   }
 
+
   useEffect(()=>{
-    //if(user && userObj === {}){
+    if(user){
+      const unsub = onSnapshot(collection(db, 'plans', user.uid, 'plans'), snapshot=>{
+        setPlans(snapshot.docs.map(doc=>(
+          doc.data()
+        )))
+      
+      })
+
       getUserData(user.uid).then(res=>{
         setUserObj(res)
+      }).catch(err=>{
+        console.log(err.message)
       })
-   //}
+
+      return unsub
+   }
+ 
   }, [])
 
-console.log(userObj)
 
   return (
     <>
@@ -111,10 +127,17 @@ console.log(userObj)
         </DialogActions>
       </Dialog>
         <div className='auth'>
+          {plans?.length === 0 ?
           <Link to='/plan' style={{textDecoration: 'none', color: 'black'}}>
             <EventNoteIcon style={{marginLeft: '20px'}} />
-          </Link>
-          
+          </Link>:
+          <Badge badgeContent={plans?.length} color="primary">
+            <Link to='/plan' style={{textDecoration: 'none', color: 'black'}}>
+              <EventNoteIcon style={{marginLeft: '20px'}} />
+            </Link>
+          </Badge>
+          }
+
           { userObj !== {} ?
            <Avatar onClick={(e)=> setAnchorEl(e.currentTarget)} style={{marginLeft: '20px', cursor: 'pointer'}} src={userObj.profilePicture} /> :
             <Avatar onClick={(e)=> setAnchorEl(e.currentTarget)} style={{marginLeft: '20px', cursor: 'pointer'}}/>
@@ -139,8 +162,8 @@ console.log(userObj)
           </Link>
 
         <div className='auth'>
-         <h3 className='authBtn'> Login </h3>
-         <h3 className='authBtn'>Register</h3>
+         <h3 className='authBtn' onClick={()=> history.push('/login')}> Login </h3>
+         <h3 className='authBtn'  onClick={()=> history.push('/register')}>Register</h3>
         </div>
        
     </div>

@@ -42,11 +42,16 @@ const PlanScreen = () => {
           <h1 className='planh1'>Plans</h1>
         </div>
         <div>
-            {
+          {
+            plans.length !== 0 ? 
             plans.map(meal=>(
-                <PlanSection name={meal.name} image={meal.image} mealId={meal.mealId} meal={meal} key={meal.mealId} />
-            ))
-            }
+              <PlanSection name={meal.name} image={meal.image} mealId={meal.mealId} meal={meal} key={meal.mealId} />
+              )):
+              <div className='noPlans'>
+                fuyidosfujsiofjisop;fjiso;djfi;snvklxcvhnkxl.sfjhidk;lsjfhil;ks
+              </div>
+          }
+ 
         </div>
         
         

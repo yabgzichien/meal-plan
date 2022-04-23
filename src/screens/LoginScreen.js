@@ -12,6 +12,8 @@ import { doc, setDoc } from "firebase/firestore";
 
 import { Link } from 'react-router-dom'
 
+import Header from '../components/Header'
+
 const LoginScreen = () => {
 
   const [email, setEmail] = useState('')
@@ -43,6 +45,8 @@ const LoginScreen = () => {
   }
 
   return (
+    <>
+    <Header isAuth={false} />
     <div className='authContainer' >
         <div className='authBox' >
           <h1 className='authTitle'>Login</h1>
@@ -71,6 +75,7 @@ const LoginScreen = () => {
           </p>
         </div>
     </div>
+    </>
   )
 }
 

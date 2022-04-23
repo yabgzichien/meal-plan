@@ -2,7 +2,15 @@ import React, { useState, useEffect } from 'react'
 
 import axios from 'axios'
 
+import { useHistory } from 'react-router-dom'
+import { deletePlan } from '../utils/utils'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { auth } from '../firebase'
+
 const PlanSection = ({ image, name, mealId, meal }) => {
+
+  const history = useHistory()
+  const [user] = useAuthState(auth)
 
   const [mealDetails, setMealDetails] = useState({})
 
@@ -15,6 +23,14 @@ const PlanSection = ({ image, name, mealId, meal }) => {
     fetchMealDetails()
   }, [])
 
+  const viewRecipe = () =>{
+    history.push(`/info/${mealId}`)
+  }
+
+  const remove = async () =>{
+    await deletePlan(user.uid, mealId)
+  }
+
   return (
     <div className='planSectionContainer'>
         <img src={image} className='planFoodPicture' />
@@ -22,8 +38,8 @@ const PlanSection = ({ image, name, mealId, meal }) => {
           <div className='planSectionInfo'>
             <h1 className='foodName'>{name}</h1>
             <div className='planBtnContainer'> 
-              <button className='removeFromPlan planBtn'>Remove</button>
-              <button className='viewRecipeBtn planBtn'>View Recipe</button>
+              <button className='removeFromPlan planBtn' onClick={remove} >Remove</button>
+              <button className='viewRecipeBtn planBtn' onClick={viewRecipe}>View Info</button>
             </div>
           </div>
           <div className='ingredientContainer'>
