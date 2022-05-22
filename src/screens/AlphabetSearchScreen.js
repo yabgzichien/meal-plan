@@ -8,6 +8,7 @@ import axios from 'axios'
 
 import '../css/Alphabets.css'
 import Header from '../components/Header'
+import { CircularProgress } from '@mui/material'
 
 const AlphabetSearchScreen = () => {
   const { char } = useParams()
@@ -33,15 +34,28 @@ const AlphabetSearchScreen = () => {
         <Header isAuth={true}/>
         <div className='alphaSearchContainer'>
             <div className='alphaTitleContainer'>
-                <h1 className='alphaTitle'>{char.toUpperCase()}</h1>
+                <h1 className='alphaTitle'>{char?.toUpperCase()}</h1>
             </div>
-            
+
+            {!loading ?
+            <>
+            {alphabetMeals ?
             <div className='filteredMeals'>
-                {alphabetMeals.map(meal=>(
+                {alphabetMeals?.map(meal=>(
                     <Meals name={meal.strMeal} image={meal.strMealThumb} mealId={meal.idMeal} key={meal.idMeal} />
-                ))}
+                ))
+                }
+            </div>:
+            <div className='filteredMeals'>
+              <p>Nothing is here lol</p>
             </div>
+            }
+            </>:
+            <CircularProgress />
+          }
+
         </div>
+        
     </>
   )
 }

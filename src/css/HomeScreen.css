@@ -3,6 +3,8 @@
 .homeContainer{
     background-image: url('../../public/food1.jpg');
     height: 90vh;
+    display: flex;
+    
 }
 
 .homeTextContainer{

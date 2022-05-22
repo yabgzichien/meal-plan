@@ -3,6 +3,7 @@ import { addDoc, collection, getDocs, getDoc, doc, setDoc, deleteDoc } from "fir
 import { v4 as uuidv4 } from 'uuid';
 
 const addToPlan = async (uid, planData) =>{
+    console.log(planData)
     // detects if the same plan data is already there
     //await addDoc(collection(db, 'plans', uid, 'plans'), planData)
     await setDoc(doc(db, 'plans', uid, 'plans', planData.mealId), planData, { merge: true })

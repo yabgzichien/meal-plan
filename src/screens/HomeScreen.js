@@ -30,7 +30,12 @@ const HomeScreen = ({ auth }) => {
                 <p>Get Started on</p>
 
                 <div className=''>
-                <Button variant="contained" color="success" style={{marginTop: '5px'}}> <AndroidIcon />  <p style={{marginLeft: '10px'}}>Android </p> </Button>
+
+                <a  target="_blank" href="https://mega.nz/file/IMcjAQiJ#3EEmeqqfH2kh3sxbEXxI0enn-ZxBO3ogpbKBrO3onl0">
+                  <Button variant="contained" color="success" style={{marginTop: '5px'}}>  
+                    <AndroidIcon />  <p style={{marginLeft: '10px'}}>Android </p> 
+                  </Button>
+                </a>
                     <p style={{marginTop: '5px'}}>or</p>
                 
                 <Link to='/login' style={{display: 'flex', alignItems: 'center'}}>
@@ -40,10 +45,11 @@ const HomeScreen = ({ auth }) => {
                 </Link>
                 </div>
 
-
+                
             </div>
-
+            <img src="/mobile.png" />
         </div>
+        
       </div>
         </>
         }

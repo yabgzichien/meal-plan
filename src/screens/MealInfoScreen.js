@@ -7,11 +7,17 @@ import '../css/MealInfoScreen.css'
 import MealInfoHeader from '../components/MealInfoHeader'
 import Header from '../components/Header'
 
+import { addToPlan } from '../utils/utils'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { auth } from '../firebase'
+
 const MealInfoScreen = () => {
 
   const [mealObj, setMealObj] = useState({})
 
   const { id } = useParams()
+
+  const [user] = useAuthState(auth)
 
   useEffect(()=>{
     axios.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`).then(res=>{
@@ -30,6 +36,17 @@ const MealInfoScreen = () => {
     }else{
         return null
     }
+  }
+
+  const addToYourPlan = async () =>{
+    const newMealObj = {
+      mealId: mealObj.idMeal,
+      name: mealObj.strMeal,
+      image: mealObj.strMealThumb
+    }
+    await addToPlan(user.uid, newMealObj).then(res=>{
+      alert("Sucessfully added to your plan")
+    })
   }
 
   const countryFlag = () =>{
@@ -138,7 +155,7 @@ const MealInfoScreen = () => {
         </div>
 
 
-      <button className='addToYourPlan' > Add To Your Plan </button>
+      <button className='addToYourPlan' onClick={addToYourPlan} > Add To Your Plan </button>
       </div>
     </div>
     </>
