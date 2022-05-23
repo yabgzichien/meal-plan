@@ -88,11 +88,12 @@ const Header = ({ isAuth }) => {
     { isAuth ?
     <div className='headerContainer'>
         <div className='nameContainer'>
-          <Link to='/' style={{textDecoration: 'none', color: 'black'}}>
-            <h2 className='companyName'>fsdfsdffsdrwe</h2>
+          <Link to='/' style={{textDecoration: 'none', color: 'black', display: 'flex', alignItems: 'center'}}>
+          <img src='https://djlunatique.com/wp-content/uploads/2022/01/Website-3-1.jpg' style={{width: '100px', height: '60px'}} />
+            <h2 className='companyName'>Kitchen Delight</h2>
           </Link>
           
-          <h2 > Recipe</h2>
+
         </div>
         <form className='searchContainer'onSubmit={searchMeal} >
           <input className='headerSearchInput' onChange={e=> setSearch(e.target.value)} />
@@ -163,7 +164,7 @@ const Header = ({ isAuth }) => {
     <div className='headerContainer'>
           <Link to='/' style={{textDecoration: 'none', color: 'black', display: 'flex', alignItems: 'center'}}>
             <img src='https://djlunatique.com/wp-content/uploads/2022/01/Website-3-1.jpg' style={{width: '100px', height: '60px'}} />
-            <h2 className='companyName'>fsdfsdffsdrwe</h2>
+            <h2 className='companyName'>Kitchen Delight</h2>
           </Link>
 
         <div className='auth'>
