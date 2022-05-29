@@ -57,24 +57,28 @@ const RegisterScreen = () => {
               <option> Choose a gender</option>
               <option value="volvo">Male</option>
               <option value="saab">Female</option>
-              <option> No gender </option>
-            
+              <option> No gender </option> 
+              <option>Dream</option>
               <option>  Male, but identify as female </option>
               <option>  Female, but identify as male </option>
-
               <option>Male Overweight so has boobs</option>
               <option>  Born without genitals - identify as male </option>
               <option>  Born without genitals - identify as female </option>
               <option>  Born without genitals - proud of it </option>
               <option>  Born a male, bad circumcision, raised a female </option>
-
-
               <option>  Male, but curious what being a Female is Like </option>
               <option>  Female, but curious what being a Male is Like </option>
+              <option> Carrot that are planted with care </option>
               <option> Megatron 30123 </option>
-              <option> Attack Helipcoter </option>
+              <option> Attack Helipcoter Mi-28MN Apache </option>
+              <option>Fidget Spinner that are made with high quality stainless steel </option>
+              <option>Eren Yeager but don't have freedom</option>
+              <option>XueHuaPiaoPiaoBeiFengXiaoXiao</option>
+              <option> a² + b² = c² </option>
+              <option> πr²</option>
+              <option>2πr</option>
               <option value="audi">Ferrari</option>
-              <option value="mercedes">Mercedes</option>
+              <option>MaoZeDong</option>
               <option>None</option>
               <option>Other</option>
             </select>

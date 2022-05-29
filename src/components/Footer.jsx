@@ -7,6 +7,7 @@ const Footer = () => {
     <div className='footerContainer'>
       <div className='githubContainer'>
         <a href='https://github.com/yabgzichien/meal-plan' target='_blank' className='githubContainer' >
+          <img style={{width: '100px'}} src='https://camo.githubusercontent.com/29137a622c86b65c2dfc11a07295c56779eb13acb781e0ccfe00c7144b7d6173/68747470733a2f2f76696e63656e742d79616f32372e6769746875622e696f2f70682d69636f6e2d67656e2f6769742e706e67'/>
           <p style={{color: 'white'}} >Source Code </p>
           <GitHubIcon style={{color: 'white', marginLeft: '10px', fontSize:'40px'}} />
         </a>
