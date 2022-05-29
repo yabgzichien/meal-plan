@@ -34,6 +34,8 @@ import CircularProgress from '@mui/material/CircularProgress';
 import { auth } from './firebase'
 import { useAuthState } from 'react-firebase-hooks/auth';
 
+import Footer from './components/Footer'
+
 function App() {
   //const [search, setSearch] = useState('')
   const [meals, setMeals] = useState([])
@@ -105,6 +107,7 @@ function App() {
 
       }
 
+    <Footer />
     </Router>
     </UserContext.Provider>
     </SearchContext.Provider>

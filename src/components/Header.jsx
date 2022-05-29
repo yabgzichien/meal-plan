@@ -89,7 +89,7 @@ const Header = ({ isAuth }) => {
     <div className='headerContainer'>
         <div className='nameContainer'>
           <Link to='/' style={{textDecoration: 'none', color: 'black', display: 'flex', alignItems: 'center'}}>
-          <img src='https://djlunatique.com/wp-content/uploads/2022/01/Website-3-1.jpg' style={{width: '100px', height: '60px'}} />
+          <img src='/walter.jpg' style={{width: '70px', height: '70px', borderRadius: '20px'}} alt="logo" />
             <h2 className='companyName'>Kitchen Delight</h2>
           </Link>
           
@@ -163,14 +163,22 @@ const Header = ({ isAuth }) => {
     </div> :
     <div className='headerContainer'>
           <Link to='/' style={{textDecoration: 'none', color: 'black', display: 'flex', alignItems: 'center'}}>
-            <img src='https://djlunatique.com/wp-content/uploads/2022/01/Website-3-1.jpg' style={{width: '100px', height: '60px'}} />
+            <img src='/walter.jpg' style={{width: '70px', height: '70px', borderRadius: '20px'}} alt="logo" />
             <h2 className='companyName'>Kitchen Delight</h2>
           </Link>
 
         <div className='auth'>
           <div className='authBtnContainer'>
-            <h3 className='authBtn' onClick={()=> history.push('/login')}> Login </h3>
-            <h3 className='authBtn'  onClick={()=> history.push('/register')}>Register</h3>
+            <div className='authHeaderBtn' onClick={()=> history.push('/login')}>
+              <img className='randomHeaderImg' src='https://c.tenor.com/dIaP-9Yp9fIAAAAM/super-idol.gif'/>
+              <h3 className='authBtn'> Login </h3>
+            </div>
+
+            <div className='authHeaderBtn' onClick={()=> history.push('/register')}>
+              <img className='randomHeaderImg' src='https://c.tenor.com/LSdPTJ_Uki4AAAAC/haram-heisenberg.gif' />
+              <h3 className='authBtn' >Register</h3>
+            </div>
+            
           </div>
        
 

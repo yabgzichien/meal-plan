@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
 import { useParams } from 'react-router-dom'
-import MealInfoHeader from '../components/MealInfoHeader'
 import Meals from '../components/Meals'
 
 import axios from 'axios'

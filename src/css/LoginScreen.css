@@ -7,8 +7,8 @@
 }
 
 .authBox{
-    width: 400px;
-    height: 500px;
+    width: 450px;
+    height: 600px;
     background-color: #d9fff2;
     border: 2px solid black;
     border-radius: 20px;
@@ -57,4 +57,9 @@
     font-size: 16px;
     margin-left: 20px;
     margin-top: 30px;
+}
+
+.gender{
+    width: 300px;
+    padding: 15px 3px
 }

@@ -2,9 +2,15 @@
 
 .homeContainer{
     background-image: url('../../public/food1.jpg');
+    height: 100vh;
+    display: flex;
+}
+
+.homeContainerp2{
+    background-image: url('../../public/melonmusk.jpg');
     height: 90vh;
     display: flex;
-    
+    background-repeat: round;
 }
 
 .homeTextContainer{

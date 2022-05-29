@@ -1,0 +1,33 @@
+.footerContainer{
+    background-color: #000233;
+    height: 150px;
+    padding: 20px;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+}
+
+.githubContainer{
+    display: flex;
+    align-items: center;
+}
+
+.randomImg{
+    width: 100px;
+    height: 100px;
+    margin: 0 20px;
+    border-radius: 20px;
+}
+
+.randomImageContainer{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+
+.sponsorsContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+}

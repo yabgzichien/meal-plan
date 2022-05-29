@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom'
 
 import Header from '../components/Header'
 import Home from '../components/Home'
+import Footer from '../components/Footer'
 
 const HomeScreen = ({ auth }) => {
   
@@ -31,7 +32,7 @@ const HomeScreen = ({ auth }) => {
 
                 <div className=''>
 
-                <a  target="_blank" href="https://mega.nz/file/IMcjAQiJ#3EEmeqqfH2kh3sxbEXxI0enn-ZxBO3ogpbKBrO3onl0">
+                <a  target="_blank" rel="noopener" href="https://mega.nz/file/IMcjAQiJ#3EEmeqqfH2kh3sxbEXxI0enn-ZxBO3ogpbKBrO3onl0">
                   <Button variant="contained" color="success" style={{marginTop: '5px'}}>  
                     <AndroidIcon />  <p style={{marginLeft: '10px'}}>Android </p> 
                   </Button>
@@ -45,12 +46,23 @@ const HomeScreen = ({ auth }) => {
                 </Link>
                 </div>
 
-                
+                <img src="/melon.png" style={{width: '100px', height: '90px'}} alt="Melon Musk" />
             </div>
-            <img src="/mobile.png" />
+            <img src="/mobile.png" alt="Mobile App" />
+
+
         </div>
-        
+
+         <div className="home">
+           <div className="homeContainerp2">
+          
+
+          </div>
+          </div> 
+
+
       </div>
+      
         </>
         }
       </>

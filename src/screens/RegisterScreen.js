@@ -51,6 +51,36 @@ const RegisterScreen = () => {
           <div className='authTextInput'>
               <TextField onChange={e=> setUsername(e.target.value)} value={username} id="filled-basic" label="Username" variant="filled" style={{backgroundColor: '#f5f5f5', width: '300px'}} />
             </div>
+          
+         
+          <select className="gender" >
+              <option> Choose a gender</option>
+              <option value="volvo">Male</option>
+              <option value="saab">Female</option>
+              <option> No gender </option>
+            
+              <option>  Male, but identify as female </option>
+              <option>  Female, but identify as male </option>
+
+              <option>Male Overweight so has boobs</option>
+              <option>  Born without genitals - identify as male </option>
+              <option>  Born without genitals - identify as female </option>
+              <option>  Born without genitals - proud of it </option>
+              <option>  Born a male, bad circumcision, raised a female </option>
+
+
+              <option>  Male, but curious what being a Female is Like </option>
+              <option>  Female, but curious what being a Male is Like </option>
+              <option> Megatron 30123 </option>
+              <option> Attack Helipcoter </option>
+              <option value="audi">Ferrari</option>
+              <option value="mercedes">Mercedes</option>
+              <option>None</option>
+              <option>Other</option>
+            </select>
+
+
+
             <div className='authTextInput'>
               <TextField onChange={e=> setEmail(e.target.value)} value={email} id="filled-basic" label="Email" variant="filled" style={{backgroundColor: '#f5f5f5', width: '300px'}} />
             </div>
