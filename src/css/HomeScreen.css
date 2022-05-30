@@ -1,27 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
 
 .homeContainer{
-    background-image: url('../../public/food1.jpg');
+    /* background-image: url('../../public/food1.jpg'); */
     height: 100vh;
     display: flex;
+    background-color: rgb(0, 4, 66);
 }
 
 .homeContainerp2{
-    background-image: url('../../public/melonmusk.jpg');
-    height: 90vh;
+    background-color: rgb(36, 36, 36);
+    height: 100vh;
     display: flex;
     background-repeat: round;
 }
 
 .homeTextContainer{
-    padding: 200px;
+    padding-left: 10vw;
+    padding-top: 20vh;
+}
+
+.homeInfoContainer{
+    background-color: white;
+    padding: 30px;
+    border-radius: 30px;
+    width: 600px;
+    height: 400px;
+    
+}
+
+.downloadHome{
+    margin: 30px 0;
 }
 
 
 .planHome{
-    font-size: 60px;
-
+    font-size: 50px;
+    color: black;
     font-family: 'Secular One', sans-serif;
+    border-bottom: 2px solid black;
 }
 
 @media (max-width: 500px){
