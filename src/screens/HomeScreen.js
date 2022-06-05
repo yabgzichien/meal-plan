@@ -30,7 +30,7 @@ const HomeScreen = ({ auth }) => {
             <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-around', width: '100%'}}>
 
                 <div className='homeInfoContainer'>
-                  <h1 className='planHome' >Tired Of Thinking What To Cook For Today?</h1>
+                  <h1 className='planHome' >Tired Of Planning What To Cook For Today?</h1>
                   <p style={{ fontSize: '24px', fontWeight: '600', marginTop: '10px', marginBottom: '10px' }}>
                     Plan your meal with Kitchen Delight today
                   </p>
@@ -64,7 +64,7 @@ const HomeScreen = ({ auth }) => {
            <div  className="homeContainerp2">
 
             <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-around', width: '100%'}}>
-              <img src='/recipe.png'  style={{width: '570px', objectFit: 'contain'}} />
+              <img src='/recipe.png'  style={{width: '50%', objectFit: 'contain'}} />
 
               <div className='homeInfoContainer'>
                   <h2 className='planHome'>With Wide Variety of Recipes to chose from</h2>

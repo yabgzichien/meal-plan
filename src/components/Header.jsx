@@ -170,12 +170,12 @@ const Header = ({ isAuth }) => {
         <div className='auth'>
           <div className='authBtnContainer'>
             <div className='authHeaderBtn' onClick={()=> history.push('/login')}>
-              <img className='randomHeaderImg' src='https://c.tenor.com/dIaP-9Yp9fIAAAAM/super-idol.gif'/>
+              <img className='randomHeaderImg' src='https://media2.giphy.com/media/cEsoz6GAoTubm/giphy.gif'/>
               <h3 className='authBtn'> Login </h3>
             </div>
 
             <div className='authHeaderBtn' onClick={()=> history.push('/register')}>
-              <img className='randomHeaderImg' src='https://c.tenor.com/LSdPTJ_Uki4AAAAC/haram-heisenberg.gif' />
+              <img className='randomHeaderImg' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfUloSzEDnsD0bBFesQ2ZgQ9rh8CiihQHbCsdMDpIY4GL3091im34eKkLzoC4bQYTIDxo&usqp=CAU' />
               <h3 className='authBtn' >Register</h3>
             </div>
             
