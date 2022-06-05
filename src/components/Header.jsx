@@ -89,7 +89,7 @@ const Header = ({ isAuth }) => {
     <div className='headerContainer'>
         <div className='nameContainer'>
           <Link to='/' style={{textDecoration: 'none', color: 'black', display: 'flex', alignItems: 'center'}}>
-          <img src='/walter.jpg' style={{width: '70px', height: '70px', borderRadius: '20px'}} alt="logo" />
+          <img src='/kitchendelight.png' style={{width: '70px', height: '70px', borderRadius: '20px'}} alt="logo" />
             <h2 className='companyName'>Kitchen Delight</h2>
           </Link>
           
@@ -163,7 +163,7 @@ const Header = ({ isAuth }) => {
     </div> :
     <div className='headerContainer'>
           <Link to='/' style={{textDecoration: 'none', color: 'black', display: 'flex', alignItems: 'center'}}>
-            <img src='/walter.jpg' style={{width: '70px', height: '70px', borderRadius: '20px'}} alt="logo" />
+            <img src='/kitchendelight.png' style={{width: '70px', height: '70px', borderRadius: '20px'}} alt="logo" />
             <h2 className='companyName'>Kitchen Delight</h2>
           </Link>
 
