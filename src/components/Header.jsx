@@ -89,7 +89,7 @@ const Header = ({ isAuth }) => {
     <div className='headerContainer'>
         <div className='nameContainer'>
           <Link to='/' style={{textDecoration: 'none', color: 'black', display: 'flex', alignItems: 'center'}}>
-          <img src='/walter.jpg' style={{width: '70px', height: '70px', borderRadius: '20px'}} alt="logo" />
+          <img src='/logo.png' style={{width: '70px', height: '70px', borderRadius: '20px'}} alt="logo" />
             <h2 className='companyName'>Kitchen Delight</h2>
           </Link>
           
@@ -163,19 +163,19 @@ const Header = ({ isAuth }) => {
     </div> :
     <div className='headerContainer'>
           <Link to='/' style={{textDecoration: 'none', color: 'black', display: 'flex', alignItems: 'center'}}>
-            <img src='/walter.jpg' style={{width: '70px', height: '70px', borderRadius: '20px'}} alt="logo" />
+            <img src='/logo.png' style={{width: '90px', height: '80px', borderRadius: '20px'}} alt="logo" />
             <h2 className='companyName'>Kitchen Delight</h2>
           </Link>
 
         <div className='auth'>
           <div className='authBtnContainer'>
             <div className='authHeaderBtn' onClick={()=> history.push('/login')}>
-              <img className='randomHeaderImg' src='https://c.tenor.com/dIaP-9Yp9fIAAAAM/super-idol.gif'/>
+              <img className='randomHeaderImg' src='https://media2.giphy.com/media/cEsoz6GAoTubm/giphy.gif'/>
               <h3 className='authBtn'> Login </h3>
             </div>
 
             <div className='authHeaderBtn' onClick={()=> history.push('/register')}>
-              <img className='randomHeaderImg' src='https://c.tenor.com/LSdPTJ_Uki4AAAAC/haram-heisenberg.gif' />
+              <img className='randomHeaderImg' src='https://c.tenor.com/CKHz78IVi80AAAAC/%E0%B8%81%E0%B8%B4%E0%B8%99-hungry.gif' />
               <h3 className='authBtn' >Register</h3>
             </div>
             

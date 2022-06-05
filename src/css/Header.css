@@ -1,9 +1,11 @@
 .headerContainer{
-    background-color: rgb(26, 26, 26) ;
+    background-color: rgba(209, 209, 209, 0.9) ;
     padding: 3vh 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    width: 100%;
 }
 
 .companyName{
@@ -110,6 +112,7 @@
     border-radius: 10px;
     margin: 0 20px;
     transition: 0.1s;
+    cursor: pointer;
 }
 
 .authHeaderBtn:hover{

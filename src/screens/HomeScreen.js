@@ -5,7 +5,7 @@ import AndroidIcon from '@mui/icons-material/Android';
 import Button from '@mui/material/Button';
 import WebIcon from '@mui/icons-material/Web';
 
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 import Header from '../components/Header'
 import Home from '../components/Home'
@@ -13,6 +13,7 @@ import Footer from '../components/Footer'
 
 const HomeScreen = ({ auth }) => {
   
+  const history = useHistory()
 
   return (
       <>
@@ -37,18 +38,16 @@ const HomeScreen = ({ auth }) => {
 
                   <h3 style={{ textDecoration: 'underline' }}>Download it on</h3>
                   <a  target="_blank" rel="noopener" href="https://mega.nz/file/IMcjAQiJ#3EEmeqqfH2kh3sxbEXxI0enn-ZxBO3ogpbKBrO3onl0">
-                    <Button variant="contained" color="success" style={{marginTop: '5px'}}>  
+                    <button className='downloadAndroid' style={{marginTop: '5px'}}>  
                       <AndroidIcon />  <p style={{marginLeft: '10px'}}>Android </p> 
-                    </Button>
+                    </button>
                   </a>
                       <p style={{marginTop: '5px'}}>or</p>
                   
       
-                    <Button variant="contained" style={{marginTop: '5px'}}  > 
-                    <Link to='/login' style={{display: 'flex', alignItems: 'center', color: 'black', textDecoration: 'none'}}>
+                    <button className='continueWeb' style={{marginTop: '5px'}} onClick={() => history.push('/login')} > 
                             Continue On The Web <WebIcon />  
-                    </Link>
-                    </Button>
+                    </button>
                 
                   </div>
                 </div>
