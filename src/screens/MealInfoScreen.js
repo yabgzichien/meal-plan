@@ -4,7 +4,6 @@ import axios from 'axios'
 import { useParams } from 'react-router-dom'
 
 import '../css/MealInfoScreen.css'
-import MealInfoHeader from '../components/MealInfoHeader'
 import Header from '../components/Header'
 
 import { addToPlan } from '../utils/utils'
@@ -156,6 +155,8 @@ const MealInfoScreen = () => {
 
 
       <button className='addToYourPlan' onClick={addToYourPlan} > Add To Your Plan </button>
+      <button className='addToYourPlan' onClick={addToYourPlan} > Purchase Ingredients </button>
+
       </div>
     </div>
     </>

@@ -189,6 +189,9 @@ const Header = ({ isAuth }) => {
        
     </div>
   }
+
+    <div style={{ backgroundColor: 'green', height: '100px',  }}></div>
+
     </>
   )
 }

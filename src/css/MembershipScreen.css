@@ -1,0 +1,24 @@
+.membershipContainer{
+    height: 100vh;
+    background-image: url('../../public/food1.jpg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.paymentContainer{
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.expireContainer{
+    display: flex;
+    margin: 20px 0px;
+}
+
+.cardInputContainer{
+    display: flex;
+    flex-direction: column;
+
+}
