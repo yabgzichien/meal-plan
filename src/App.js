@@ -36,6 +36,8 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 
 import Footer from './components/Footer'
 
+import { ParallaxProvider } from 'react-scroll-parallax';
+
 function App() {
   //const [search, setSearch] = useState('')
   const [meals, setMeals] = useState([])
@@ -54,6 +56,7 @@ function App() {
   }
 
   return (
+    <ParallaxProvider>
     <>{ loading ? <CircularProgress /> :
     <SearchContext.Provider value={searchContextValue} >
       <UserContext.Provider value={{userObj, setUserObj}}>
@@ -113,6 +116,7 @@ function App() {
     </SearchContext.Provider>
     }
     </>
+    </ParallaxProvider>
   );
 }
 

@@ -1,6 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 
 const Home3 = () => {
+
+  useEffect(()=>{
+    Aos.init({duration: 500, offset: 150,})
+  }, [])
+
   return (
     <div  className='homeContainer'> 
     <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', width: '100%' }}>
@@ -9,7 +16,7 @@ const Home3 = () => {
       <div className='homeInfoContainer'>
         <h1 className='planHome'>You can order our Ingredients</h1>
 
-        <div style={{marginTop: '25px'}}>
+        <div style={{marginTop: '25px'}} data-aos="zoom-in-up">
           <h1> Why order from us?? </h1>
           <li style={{fontSize: '22px', marginTop: '5px', fontWeight: '500'}}> We provide the most Organic and the Freshest Ingredients </li>
           <li style={{fontSize: '22px', marginTop: '5px', fontWeight: '500'}}> We provide high quality yet affordable ingredients </li>
@@ -20,7 +27,7 @@ const Home3 = () => {
         </div>
       </div>
 
-      <div  className='homeInfoContainer2'>
+      <div  className='homeInfoContainer2' data-aos="zoom-in-down">
           <h1 className='planHome'>Get Your Membership Today !!</h1>
           <h2 style={{marginTop: '10px', fontWeight: '500'}}> To get Free Delivery off all Ingredients orders  </h2>
 

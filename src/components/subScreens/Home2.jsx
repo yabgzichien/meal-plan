@@ -1,14 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 
 const Home2 = () => {
+
+  useEffect(()=>{
+    Aos.init({duration: 500, offset: 150,})
+  }, [])
+
   return (
     <div>
     <div  className="homeContainerp2">
 
      <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-around', width: '100%'}}>
-       <img src='/recipe.png'  style={{width: '50%', objectFit: 'contain'}} />
+       <img src='/recipe.png'  style={{width: '50%', objectFit: 'contain'}} data-aos="fade-down"  />
 
-       <div className='homeInfoContainer'>
+       <div data-aos="fade-up" className='homeInfoContainer'>
            <h2 className='planHome'>With Wide Variety of Recipes to chose from</h2>
            <div style={{padding: '30px'}}>
              <p style={{fontSize: '20px', marginBottom: '20px'}}>

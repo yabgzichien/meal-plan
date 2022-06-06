@@ -169,6 +169,9 @@ const Header = ({ isAuth }) => {
 
         <div className='auth'>
           <div className='authBtnContainer'>
+            <div className='authHeaderBtn'  onClick={()=> history.push('/login')}>
+              Membership
+            </div>
             <div className='authHeaderBtn' onClick={()=> history.push('/login')}>
               <img className='randomHeaderImg' src='https://media2.giphy.com/media/cEsoz6GAoTubm/giphy.gif'/>
               <h3 className='authBtn'> Login </h3>

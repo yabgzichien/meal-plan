@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import '../css/HomeScreen.css'
 
@@ -11,10 +11,15 @@ import { useHistory } from 'react-router-dom'
 
 import Header from '../components/Header'
 import Home from '../components/Home'
-import Footer from '../components/Footer'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 
 const HomeScreen = ({ auth }) => {
     const history = useHistory()
+
+    useEffect(()=>{
+      Aos.init({duration: 2000})
+    }, [])
 
   return (
       <>
@@ -37,6 +42,7 @@ const HomeScreen = ({ auth }) => {
 
         {/* Third part of the screen */}
         <Home3 />
+
 
       </div>
       

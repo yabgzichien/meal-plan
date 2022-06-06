@@ -1,15 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import AndroidIcon from '@mui/icons-material/Android';
 import WebIcon from '@mui/icons-material/Web';
-
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 
 const Home1 = () => {
+
+  useEffect(()=>{
+    Aos.init({duration: 500, offset: 150,})
+  }, [])
+
   return (
     <div className='homeContainer'>
   
     <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-around', width: '100%'}}>
 
-        <div className='homeInfoContainer'>
+        <div className='homeInfoContainer popupAnimation' data-aos="fade-up-right">
           <h1 className='planHome' >Tired Of Planning What To Cook For Today?</h1>
           <p style={{ fontSize: '24px', fontWeight: '600', marginTop: '10px', marginBottom: '10px' }}>
             Plan your meal with Kitchen Delight today
@@ -32,7 +38,7 @@ const Home1 = () => {
         
           </div>
         </div>
-        <img src="/mobile.png" alt="Mobile App" className='mobileImage' />
+        <img src="/mobile.png" alt="Mobile App" className='mobileImage' data-aos="fade-down" />
     </div>
    
 
