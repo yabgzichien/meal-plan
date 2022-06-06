@@ -24,6 +24,7 @@ const HomeScreen = ({ auth }) => {
       :
       <>
       <Header isAuth={false} />
+      <div style={{ backgroundColor: 'green', height: '100px',  }}></div>
       <div className='home'>
 
         {/* 1st Part of the screen */}

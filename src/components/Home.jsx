@@ -113,6 +113,7 @@ const Home = () => {
   return (
     <>
     <Header isAuth={true} />
+    <div style={{ backgroundColor: 'green', height: '105px',  }}></div>
     <div className='homeCContainer'>
 
       {/* RandomMeals */}
