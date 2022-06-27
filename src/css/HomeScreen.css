@@ -6,11 +6,11 @@
 }
 
 .homeContainer{
-    /* background-image: url('../../public/food1.jpg'); */
+    background-image: url('../../public/food1.jpg');
     height: 100vh;
     display: flex;
     /* background-color: rgb(0, 4, 66); */
-    background-image: linear-gradient(rgb(0, 4, 66), black);
+    /* background-image: linear-gradient(rgb(0, 4, 66), black) */
     border-bottom: 10px solid black;
 }
 
@@ -19,9 +19,9 @@
     height: 100vh;
     display: flex;
     background-repeat: round;
-    background-image: linear-gradient(rgb(0, 4, 66), white);
+    /* background-image: linear-gradient(rgb(0, 4, 66), white); */
     border-bottom: 10px solid black;
-    /* background-image: url('../../public/bg1.jpg'); */
+    background-image: url('../../public/bg1.jpg');
 }
 
 

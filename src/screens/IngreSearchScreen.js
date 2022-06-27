@@ -21,11 +21,18 @@ const IngreSearchScreen = () => {
 
   const fetchIngredientInfo = async () =>{
     await axios.get('https://www.themealdb.com/api/json/v1/1/list.php?i=list').then(res=>{
-      const data = res.data.meals.find(ingre=>(
-        ingre.strDescription
+
+      console.log("Inside await function",ingre)
+      const data = res.data.meals
+
+      const filtered = data.find(ing=>(
+        ing.strIngredient == ingre
       ))
-      setIngreDes(data.strDescription)
+
+  
+      setIngreDes(filtered.strDescription)
       setLoadingDes(false)
+
     }).catch(err=>{
       alert(err.message)
       setLoadingDes(false)
@@ -46,6 +53,9 @@ const IngreSearchScreen = () => {
     fetchIngredientInfo()
     fetchAvailableMeals()
   }, [])
+
+   console.log(ingreDes)
+   console.log("ingre name: ", ingre)
 
   return (
     <>

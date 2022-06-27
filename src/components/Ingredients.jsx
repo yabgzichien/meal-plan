@@ -9,8 +9,15 @@ const Ingredients = ({ name }) => {
     <Link to={`/ingredients/${name}`} style={{textDecoration: 'none', color: 'black'}}>
     <div className='ingredientsContainer'>
        <p>{name}</p>
-       <img src={`https://www.themealdb.com/images/ingredients/${name}.png`} style={{width: '200px', height: '200px'}} />
-    </div>
+    </div>       
+    
+    {
+      name === "Sweet Potatoes" ?
+     <img src={`http://assets.stickpng.com/thumbs/585ea837cb11b227491c3545.png`} style={{width: '200px', height: '200px'}} />:
+     <img src={`https://www.themealdb.com/images/ingredients/${name}.png`} style={{width: '200px', height: '200px'}} />
+      
+    }
+
     </Link>
   )
 }

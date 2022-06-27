@@ -95,11 +95,11 @@ const Header = ({ isAuth }) => {
           
 
         </div>
-        <form className='searchContainer'onSubmit={searchMeal} >
+        <div className='searchContainer' >
           <input className='headerSearchInput' onChange={e=> setSearch(e.target.value)} />
           <SearchIcon onClick={searchMeal} style={{padding: '10px', cursor: 'pointer'}} />
           <FilterAltIcon onClick={handleClickOpen} style={{padding: '10px', cursor: 'pointer'}}/>
-        </form>
+        </div>
 
       <Dialog
         open={open}

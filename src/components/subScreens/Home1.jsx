@@ -3,8 +3,11 @@ import AndroidIcon from '@mui/icons-material/Android';
 import WebIcon from '@mui/icons-material/Web';
 import Aos from 'aos'
 import 'aos/dist/aos.css'
+import { useHistory } from 'react-router-dom';
 
 const Home1 = () => {
+
+  const history = useHistory()
 
   useEffect(()=>{
     Aos.init({duration: 500, offset: 150,})

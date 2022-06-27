@@ -55,12 +55,12 @@ const CountrySearch = ({ countryName }) => {
             return <img className='nationalFlag' src='https://www.worldometers.info/img/flags/th-flag.gif' />
           case 'Tunisian':
             return <img className='nationalFlag' src='https://www.worldometers.info/img/flags/ts-flag.gif' />
-          case 'Unknown':
-            return <img className='nationalFlag' src='dsadas' />
           case 'Vietnamese':
             return <img className='nationalFlag' src='https://www.worldometers.info/img/flags/vm-flag.gif' />
           case 'Turkish':
               return <img className='nationalFlag' src='https://www.worldometers.info/img/flags/tu-flag.gif' />
+          case 'Unknown':
+              return <img className='nationalFlag' src="/unknown.png" />
           default:
             return
         }
