@@ -68,6 +68,7 @@ const IngreSearchScreen = () => {
         </div>:
         <div className='ingreDesContainer'>
           <h1>{ingre}</h1>
+          
           <CircularProgress />
         </div>
         }

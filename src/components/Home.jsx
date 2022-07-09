@@ -38,9 +38,11 @@ const Home = () => {
     let randomizeIngredients = []
     let popularIngredients = []
 
+
+    // make a less time complexity fetch
     const fetchRandom = async() =>{
       if(meals.length === 0){
-        for(let i = 0; i < 10; i++)
+        for(let i = 0; i < 5; i++)
         await axios.get('https://www.themealdb.com/api/json/v1/1/random.php').then(res=>{
             randomizeMeals.push(res.data.meals[0])
         })
@@ -114,6 +116,12 @@ const Home = () => {
     <>
     <Header isAuth={true} />
     <div className='homeCContainer'>
+
+
+      <div className='homeMemberReminderContainer'>
+        <h2> Get your membership now for only RM20 to get free delivery on all orders </h2>
+      </div>
+
 
       {/* RandomMeals */}
       { !loadingRandomMeals ? 

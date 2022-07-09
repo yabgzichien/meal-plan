@@ -11,6 +11,13 @@
     z-index: 2;
 }
 
+.membershipBtn{
+    background-color: grey;
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
 .companyName{
     margin-left: 30px;
     font-size: 40px;

@@ -10,7 +10,7 @@ const Home1 = () => {
   const history = useHistory()
 
   useEffect(()=>{
-    Aos.init({duration: 500, offset: 150,})
+    Aos.init({duration: 200, offset: 150,})
   }, [])
 
   return (

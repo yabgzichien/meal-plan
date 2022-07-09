@@ -128,6 +128,11 @@ const Header = ({ isAuth }) => {
         </DialogActions>
       </Dialog>
         <div className='auth'>
+
+          <div className='membershipBtn'>
+            <p>Membership</p>
+          </div>
+
           {plans?.length === 0 ?
           <Link to='/plan' style={{textDecoration: 'none', color: 'black'}}>
             <EventNoteIcon style={{marginLeft: '20px'}} />

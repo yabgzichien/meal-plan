@@ -39,7 +39,7 @@ const PlanScreen = () => {
    
     <div className='planScreenContainer'>
         <div className='planTitle'>
-          <h1 className='planh1'>Plans</h1>
+          <h1 className='planh1'>Saves</h1>
         </div>
         <div>
           {

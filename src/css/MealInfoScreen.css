@@ -6,6 +6,16 @@
 
 }
 
+.ingredients{
+    padding: 5px 0;
+    list-style-type: circle;
+    cursor: pointer;
+}
+
+.ingredients:hover{
+    color: blue;
+}
+
 .whiteContainer{
     padding: 20px 150px;
     background-color: white;
