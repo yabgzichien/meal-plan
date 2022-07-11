@@ -38,11 +38,16 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import Footer from './components/Footer'
 
 import { ParallaxProvider } from 'react-scroll-parallax';
+import CartScreens from './screens/CartScreens';
+import CartsContext from './CartsContext';
 
 function App() {
   //const [search, setSearch] = useState('')
   const [meals, setMeals] = useState([])
   const [plans, setPlans] = useState([])
+
+  const [carts, setCarts] = useState([])
+
   const [popularIngre, setPopularIngre] = useState([])
   const [countriesName, setCountriesName] = useState([])
   const [userObj, setUserObj] = useState({})
@@ -65,8 +70,11 @@ function App() {
       {user ? 
       
       <PlanContext.Provider value={{plans, setPlans}}>
-      
+      <CartsContext.Provider value={{carts, setCarts}} >
       <Switch>
+        <Route path='/cart'>
+          <CartScreens />
+        </Route>
         <Route path='/membership'>
           <MembershipScreen />
         </Route>
@@ -98,6 +106,7 @@ function App() {
           <HomeScreen auth={true} />
         </Route>
       </Switch>
+      </CartsContext.Provider>
       </PlanContext.Provider>
        :
         <Switch>       

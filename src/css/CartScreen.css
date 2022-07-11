@@ -1,0 +1,18 @@
+.cartScreenContainer{
+    background-image: url('../../public/food1.jpg');
+    min-height: 90vh;
+}
+
+.cartTitle{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    padding: 30px 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 30px;
+    flex-direction: column;
+    align-items: center;
+}
+

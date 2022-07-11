@@ -16,6 +16,29 @@
     min-height: 90vh;
 }
 
+.promoteToButContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ingredientImage{
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    margin: 0 20px;
+}
+
+.textAndCartContainer{
+
+}
+
+.addToCartIngreBtn{
+    display: block;
+    padding: 3px;
+    cursor: pointer;
+}
+
 .desParagraph{
     width: 1000px;
 }

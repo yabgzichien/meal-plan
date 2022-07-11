@@ -2,6 +2,23 @@ import { db } from "../firebase";
 import { addDoc, collection, getDocs, getDoc, doc, setDoc, deleteDoc } from "firebase/firestore";
 import { v4 as uuidv4 } from 'uuid';
 
+
+const addToCart = async (uid, cartData) =>{
+    await setDoc(doc(db, 'carts', uid, 'cart', cartData.ingreId), cartData, { merge: true })
+} 
+
+const fetchCarts = async (uid) =>{
+    const cartsArray = []
+    await getDocs(collection(db, 'carts', uid, 'cart')).then(snapshot=>{
+        snapshot.docs.map(doc=>{
+            cartsArray.push(doc.data())
+        })
+    })
+
+    return cartsArray
+}
+
+
 const addToPlan = async (uid, planData) =>{
     console.log(planData)
     // detects if the same plan data is already there
@@ -34,4 +51,4 @@ const getUserData = async (uid) =>{
 
 
 
-export { addToPlan, fetchPlans, getUserData, deletePlan }
+export { addToPlan, fetchPlans, getUserData, deletePlan, addToCart, fetchCarts }

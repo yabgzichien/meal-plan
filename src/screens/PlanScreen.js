@@ -3,22 +3,16 @@ import React, { useEffect, useState, useContext } from 'react'
 import Header from '../components/Header'
 import PlanSection from '../components/PlanSection'
 
-import { fetchPlans } from '../utils/utils'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth, db } from '../firebase'
 import PlanContext from '../PlanContext'
-import axios from 'axios'
 import { onSnapshot, collection } from 'firebase/firestore'
-
-import CircularProgress from '@mui/material/CircularProgress'
 
 import '../css/PlanScreen.css'
 
 const PlanScreen = () => {
   const [user] = useAuthState(auth)
   const { plans, setPlans } = useContext(PlanContext) 
-  const [mealsPlans, setMealsPlans] = useState([])
-  const [loading, setLoading] = useState(false)
 
 
   useEffect(()=>{

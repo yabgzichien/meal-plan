@@ -50,6 +50,7 @@ const MealInfoScreen = () => {
     })
   }
 
+
   const countryFlag = () =>{
     switch(mealObj.strArea){
       case 'American':
@@ -175,7 +176,7 @@ const MealInfoScreen = () => {
 
 
       <button className='addToYourPlan' onClick={addToYourPlan} > Save to Plan </button>
-      <button className='addToYourPlan' onClick={addToYourPlan} > Purchase Ingredients </button>
+      <button className='addToYourPlan' > Add to Cart </button>
 
       </div>
     </div>

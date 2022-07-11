@@ -14,6 +14,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import LogoutIcon from '@mui/icons-material/Logout';
 import Badge from '@mui/material/Badge';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 import { Link, useHistory } from 'react-router-dom'
 
@@ -133,6 +134,8 @@ const Header = ({ isAuth }) => {
             <p>Membership</p>
           </div>
 
+          <ShoppingCartIcon onClick={()=> history.push('/cart')} style={{marginLeft: '20px', cursor: 'pointer'}}/>
+
           {plans?.length === 0 ?
           <Link to='/plan' style={{textDecoration: 'none', color: 'black'}}>
             <EventNoteIcon style={{marginLeft: '20px'}} />
@@ -159,7 +162,7 @@ const Header = ({ isAuth }) => {
               <p className='menuOptions' onClick={logOut} >Logout <LogoutIcon /> </p>
             </MenuItem>
             <MenuItem>
-            <p className='menuOptions' onClick={()=> history.push('/hjkhjk')} >Click me pls </p>
+            <p className='menuOptions' onClick={()=> history.push('/hjkhjk')} >Random Stuff </p>
             </MenuItem>
 
           </Menu>

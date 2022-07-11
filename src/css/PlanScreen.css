@@ -3,6 +3,13 @@
     min-height: 90vh;
 }
 
+.priceInfoContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 200px;
+}
+
 .planTitle{
     display: flex;
     flex-wrap: wrap;
@@ -19,7 +26,7 @@
 .planh1{
     text-align: center;
     font-size: 50px;
-}
+} 
 
 .planSectionContainer{
     display: flex;
@@ -31,7 +38,6 @@
     margin-bottom: 30px;
     align-items: center;
     padding-left: 200px;
-    cursor: pointer;
 }
 
 .planFoodPicture{
