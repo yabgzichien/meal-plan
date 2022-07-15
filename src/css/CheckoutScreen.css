@@ -1,0 +1,102 @@
+.checkoutScreenContainer{
+    background-image: url('../../public/food1.jpg');
+    display: flex;
+    justify-content: center;
+}
+
+.deliveryAddress{
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.checkoutSubContainer{
+    width: 90%;
+    margin-top: 50px;
+}
+
+.locationHeader{
+    display: flex;
+    align-items: center;
+}
+
+.locationDetail{
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.addLocation{
+    display: inline;
+    margin-left: 15px;
+    color: rgb(109, 109, 255);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.productsOrderdContainer{
+    margin-top: 15px;
+}
+
+.variableSection{
+    display: grid;
+    align-items: center;
+    grid-template-columns: 50% 12.5% 12.5% 25%;
+    width: 100%;
+    margin: 5px 0;
+}
+
+.checkoutImage{
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+}
+
+.paymentMethod{
+    border-top: 1px solid black;
+    padding: 10px;
+}
+
+.paymentMethodSelections{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.paymentMethodSelections > div{
+    padding: 5px;
+    border: 2px solid black;
+    display: inline;
+    cursor: pointer;
+}
+
+
+.paymentMethodSelections > div:hover{
+    background-color: rgb(185, 185, 185);
+}
+
+
+.paymentSubtotalContainer{
+    margin: 30px;
+}
+
+.paymentDetailsContainer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.paymentSubtotal{
+    margin: 20px 0;
+    border-top: 1px solid rgb(148, 148, 148);
+}
+
+.placeOrderBtn{
+    margin: 30px 0;
+    padding: 15px 20px;
+    background-color: rgb(182, 248, 226);
+    cursor: pointer;
+}
+
+.placeOrderBtn:hover{
+    background-color: rgb(182, 248, 226, 0.7);
+}

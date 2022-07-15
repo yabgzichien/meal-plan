@@ -1,6 +1,23 @@
 import React from 'react'
+import { deleteCarts } from '../utils/utils'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { auth } from '../firebase'
+import { useHistory } from 'react-router-dom'
 
-const CartSection = ({ image, name, price, quantity, unit }) => {
+const CartSection = ({ image, name, price, quantity, unit, ingreId }) => {
+
+  const [user] = useAuthState(auth)
+
+  const history = useHistory()
+
+  const deleteCartsItem = () =>{
+    deleteCarts(user.uid, ingreId).then(res=>{
+      alert(`${name} has been removed`)
+    }).catch(err=>{
+      console.log(err)
+    })
+  }
+
   return (
     <div className='planSectionContainer'>
     <img src={image} className='planFoodPicture' />
@@ -8,8 +25,8 @@ const CartSection = ({ image, name, price, quantity, unit }) => {
       <div className='planSectionInfo'>
         <h1 className='foodName'>{name}</h1>
         <div className='planBtnContainer'> 
-          <button className='removeFromPlan planBtn'>Remove</button>
-          <button className='viewRecipeBtn planBtn' >View Info</button>
+          <button onClick={deleteCartsItem} className='removeFromPlan planBtn'>Remove</button>
+          <button onClick={()=> history.push(`ingredients/${name}`)} className='viewRecipeBtn planBtn' >View Info</button>
         </div>
       </div>
       <div className='ingredientContainer'>

@@ -29,6 +29,7 @@ import { onSnapshot, collection } from 'firebase/firestore';
 const Header = ({ isAuth }) => {
   const history = useHistory()
   const [plans, setPlans] = useState([])
+  const [carts, setCarts] = useState([])
   const [user] = useAuthState(auth)
 
   const [search, setSearch] = useState('')
@@ -65,8 +66,15 @@ const Header = ({ isAuth }) => {
 
   useEffect(()=>{
     if(user){
-      const unsub = onSnapshot(collection(db, 'plans', user.uid, 'plans'), snapshot=>{
+      const unsubPlans = onSnapshot(collection(db, 'plans', user.uid, 'plans'), snapshot=>{
         setPlans(snapshot.docs.map(doc=>(
+          doc.data()
+        )))
+      
+      })
+
+      const unsubCarts = onSnapshot(collection(db, 'carts', user.uid, 'cart'), snapshot=>{
+        setCarts(snapshot.docs.map(doc=>(
           doc.data()
         )))
       
@@ -78,7 +86,7 @@ const Header = ({ isAuth }) => {
         console.log(err.message)
       })
 
-      return unsub
+      return unsubPlans, unsubCarts
    }
  
   }, [])
@@ -134,7 +142,12 @@ const Header = ({ isAuth }) => {
             <p>Membership</p>
           </div>
 
-          <ShoppingCartIcon onClick={()=> history.push('/cart')} style={{marginLeft: '20px', cursor: 'pointer'}}/>
+          {carts?.length === 0 ? 
+            <ShoppingCartIcon onClick={()=> history.push('/cart')} style={{marginLeft: '20px', cursor: 'pointer'}}/>:
+            <Badge badgeContent={carts?.length} color="primary">
+              <ShoppingCartIcon onClick={()=> history.push('/cart')} style={{marginLeft: '20px', cursor: 'pointer'}}/>:
+            </Badge>
+          }
 
           {plans?.length === 0 ?
           <Link to='/plan' style={{textDecoration: 'none', color: 'black'}}>

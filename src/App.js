@@ -1,9 +1,6 @@
 import React, { useState } from 'react'
 import './App.css';
 
-// components
-import Header from './components/Header';
-
 // screens
 import HomeScreen from './screens/HomeScreen'
 import LoginScreen from './screens/LoginScreen'
@@ -17,6 +14,7 @@ import CategorySearchScreen from './screens/CategorySearchScreen'
 import PlanScreen from './screens/PlanScreen';
 import EastherScreen from './screens/EastherScreen'
 import MembershipScreen from './screens/MembershipScreen'
+import CheckoutScreens from './screens/CheckoutScreens'
 
 import {
   BrowserRouter as Router,
@@ -72,6 +70,9 @@ function App() {
       <PlanContext.Provider value={{plans, setPlans}}>
       <CartsContext.Provider value={{carts, setCarts}} >
       <Switch>
+        <Route path='/checkout'>
+          <CheckoutScreens />
+        </Route>
         <Route path='/cart'>
           <CartScreens />
         </Route>

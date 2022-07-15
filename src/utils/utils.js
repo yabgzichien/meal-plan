@@ -1,8 +1,19 @@
 import { db } from "../firebase";
 import { addDoc, collection, getDocs, getDoc, doc, setDoc, deleteDoc } from "firebase/firestore";
-import { v4 as uuidv4 } from 'uuid';
 
 
+const sumTotalPrice = (cartsArr) =>{
+    let priceArr = [0, 0]
+    for(let i = 0; i < cartsArr.length; i++){
+        priceArr.push(cartsArr[i].price)
+    }
+
+    let sumOfArr = priceArr.reduce((total, num)=> total + num)
+    
+    return sumOfArr
+}
+
+// carts function
 const addToCart = async (uid, cartData) =>{
     await setDoc(doc(db, 'carts', uid, 'cart', cartData.ingreId), cartData, { merge: true })
 } 
@@ -18,6 +29,10 @@ const fetchCarts = async (uid) =>{
     return cartsArray
 }
 
+const deleteCarts = async (uid, ingreId) => {
+    await deleteDoc(doc(db, 'carts', uid, 'cart', ingreId))
+ }
+
 
 const addToPlan = async (uid, planData) =>{
     console.log(planData)
@@ -26,6 +41,7 @@ const addToPlan = async (uid, planData) =>{
     await setDoc(doc(db, 'plans', uid, 'plans', planData.mealId), planData, { merge: true })
 }
 
+// plans functions
 const deletePlan = async (uid, mealId) => {
    await deleteDoc(doc(db, 'plans', uid, 'plans', mealId))
 }
@@ -41,6 +57,8 @@ const fetchPlans = async (uid) =>{
     return plansArray
 }
 
+
+// fetch user data
 const getUserData = async (uid) =>{
     let variable;
     await getDoc(doc(db, 'users', uid)).then(res=>{
@@ -51,4 +69,4 @@ const getUserData = async (uid) =>{
 
 
 
-export { addToPlan, fetchPlans, getUserData, deletePlan, addToCart, fetchCarts }
+export { addToPlan, fetchPlans, getUserData, deletePlan, addToCart, fetchCarts, deleteCarts, sumTotalPrice }

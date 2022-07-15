@@ -13,3 +13,9 @@
 .dessertBackgroundImage{
   background-image: url('../public/dessert1.jpg');
 }
+
+.flexcenter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
