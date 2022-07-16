@@ -1,15 +1,44 @@
-import React, { useContext } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../css/CheckoutScreen.css'
 import Header from '../components/Header'
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ProductsOrderSection from '../components/ProductsOrderSection';
-import CartsContext from '../CartsContext';
+import { onSnapshot, collection } from 'firebase/firestore'
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth, db } from '../firebase';
+import { Dialog, Alert } from '@mui/material';
 
 const CheckoutScreens = () => {
 
-  const { carts, setCarts } = useContext(CartsContext)
+  const [user] = useAuthState(auth)
 
-  console.log(carts)
+  // const { carts } = useContext(CartsContext)
+  const [carts, setCarts] = useState([])
+
+  const [openDialog, setOpenDialog] = useState(false)
+
+  useEffect(()=>{
+
+    const unsub = onSnapshot(collection(db, 'carts', user.uid, 'cart'), snapshot=>{
+      setCarts(snapshot.docs.map(doc=>(
+        doc.data()
+      )))
+ 
+      return unsub
+    })
+ 
+   }, [])
+
+
+  function findSubtotal(){
+    let tempArr = [0, 0]
+    carts.forEach(cart => {
+      tempArr.push(cart?.price)
+    });
+
+    return tempArr.reduce((total, num)=> total + num)
+  }
+  
 
   return (
     <>
@@ -31,12 +60,12 @@ const CheckoutScreens = () => {
 
           {
             carts.map((cart)=>(
-              <ProductsOrderSection key={cart?.name} image={cart?.image} name={cart?.name} />
+              <ProductsOrderSection key={cart?.name} quantity={cart?.quantity} price={cart?.price} image={cart?.image} name={cart?.name} />
             ))
           }
 
           <div className='paymentMethod'>
-            <h3 style={{textAlign: 'center'}}>Payment Method</h3>
+            <h3 style={{textAlign: 'center', marginBottom: '15px'}}>Payment Method</h3>
             <div className='paymentMethodSelections'>
               <div>Cash On Delivery</div>
               <div>Online Banking</div>
@@ -49,22 +78,25 @@ const CheckoutScreens = () => {
         <div className='deliveryAddress paymentSubtotalContainer'>
           <div className='paymentDetailsContainer'>
            <p>Ingredients Subtotal</p>
-           <p>1</p>
+           <p>RM{findSubtotal()}</p>
           </div>
           <div className='paymentDetailsContainer'>
            <p>Delivery Fee</p>
-           <p>1</p>
+           <p>RM 5</p>
           </div>
           <div className='paymentDetailsContainer paymentSubtotal'>
            <p>Subtotal</p>
-           <p>2</p>
+           <p>RM{findSubtotal() + 5}</p>
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between'}}>
             <div></div>
-            <button className='placeOrderBtn'> Place Order </button>
+            <button onClick={()=> setOpenDialog(true)} className='placeOrderBtn'> Place Order </button>
           </div>
           </div>
         </div>
+          <Dialog onClose={()=> setOpenDialog(false)} open={openDialog}>
+            <Alert severity='success'> The Items has been successfully ordered </Alert>
+          </Dialog>
         </div>
     </div>
     </>

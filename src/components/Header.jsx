@@ -138,7 +138,7 @@ const Header = ({ isAuth }) => {
       </Dialog>
         <div className='auth'>
 
-          <div className='membershipBtn'>
+          <div onClick={()=> history.push('./membership')} className='membershipBtn'>
             <p>Membership</p>
           </div>
 
