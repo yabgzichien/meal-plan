@@ -9,6 +9,7 @@ import Header from '../components/Header'
 import { addToPlan } from '../utils/utils'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '../firebase'
+import CommentSection from '../components/CommentSection'
 
 const MealInfoScreen = () => {
 
@@ -179,6 +180,7 @@ const MealInfoScreen = () => {
       <button className='addToYourPlan' > Add to Cart </button>
 
       </div>
+        <CommentSection itemName={mealObj.strMeal}  />
     </div>
     </>
   )

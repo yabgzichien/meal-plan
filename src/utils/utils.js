@@ -1,6 +1,18 @@
 import { db } from "../firebase";
-import { addDoc, collection, getDocs, getDoc, doc, setDoc, deleteDoc } from "firebase/firestore";
+import { addDoc, collection, getDocs, getDoc, doc, setDoc, deleteDoc, serverTimestamp } from "firebase/firestore";
 
+
+
+const submitComments = async (comment, pfp, username, itemName) =>{ 
+    const data = {
+        username,
+        pfp,
+        comment,
+        time: serverTimestamp(),
+        replies: []
+    }
+    await addDoc(collection(db, 'comments', itemName, 'comments'), data )
+}
 
 const sumTotalPrice = (cartsArr) =>{
     let priceArr = [0, 0]
@@ -69,4 +81,4 @@ const getUserData = async (uid) =>{
 
 
 
-export { addToPlan, fetchPlans, getUserData, deletePlan, addToCart, fetchCarts, deleteCarts, sumTotalPrice }
+export { addToPlan, fetchPlans, getUserData, deletePlan, addToCart, fetchCarts, deleteCarts, sumTotalPrice, submitComments }

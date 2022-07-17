@@ -17,8 +17,7 @@ const Footer = () => {
           <p style={{color: 'white'}}>Thanks to our sponsors: </p>
 
           <div className='randomImageContainer'>
-            <img className='randomImg' src='https://c.tenor.com/S2XxWuiUGNYAAAAC/sussy-baka-baka.gif' />
-            <img className='randomImg' src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Moai_Rano_raraku.jpg/576px-Moai_Rano_raraku.jpg' />
+            <img className='randomImg' src='/melon.png' />
             <img className='randomImg' src='https://preview.redd.it/lf3wxh67vuh81.png?width=640&crop=smart&auto=webp&s=5577fb962db97a8d83cf65bb3e4b5ac6172091d8' />
             <img className='randomImg' src='https://pbs.twimg.com/profile_images/1264937935754924033/19oZ6aTE_400x400.jpg' />
             <img className='randomImg' src='https://preview.redd.it/p56juo2ybec61.jpg?auto=webp&s=2e4f74b1e94e8b3dff86caa7a23841074ee529a2'/>

@@ -74,3 +74,32 @@ p{
     justify-content: center;
     align-items: center;
 }
+
+.qnasSectionContainer{
+    background-color: white;
+    width: 58%;
+    min-height: 200px;
+    margin: 10px 0;
+    padding: 50px;
+}
+
+.qnaTextArea{
+    resize: none;
+    width: 70%;
+    height: 90px;
+    margin-top: 30px;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.inputAreaContainer{
+    display: flex;
+    align-items:flex-end;
+}
+
+.submitBtn{
+    padding: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    margin: 10px;
+}

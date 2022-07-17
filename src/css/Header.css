@@ -141,6 +141,7 @@
     border-radius: 20px;
 }
 
+
 @media screen and (max-width: 500px){ 
 .headerSearchInput{
     padding: 10px 15px;

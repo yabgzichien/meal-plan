@@ -17,6 +17,8 @@ const CheckoutScreens = () => {
 
   const [openDialog, setOpenDialog] = useState(false)
 
+  const [paymentMethod, setPaymentMethod] = useState('')
+
   useEffect(()=>{
 
     const unsub = onSnapshot(collection(db, 'carts', user.uid, 'cart'), snapshot=>{
@@ -67,11 +69,11 @@ const CheckoutScreens = () => {
           <div className='paymentMethod'>
             <h3 style={{textAlign: 'center', marginBottom: '15px'}}>Payment Method</h3>
             <div className='paymentMethodSelections'>
-              <div>Cash On Delivery</div>
-              <div>Online Banking</div>
-              <div>Credit Card/ Debit Card</div>
-              <div>TNG E-Wallet</div>
-              <div>Cash Payment at 7-11</div>
+              <div onClick={()=> setPaymentMethod('cod')} style={{ backgroundColor: paymentMethod === 'cod' ? 'grey' : 'white' }} >Cash On Delivery</div>
+              <div onClick={()=> setPaymentMethod('onlineB')} style={{ backgroundColor: paymentMethod === 'onlineB' ? 'grey' : 'white' }}>Online Banking</div>
+              <div onClick={()=> setPaymentMethod('card')} style={{ backgroundColor: paymentMethod === 'card' ? 'grey' : 'white' }}>Credit Card/ Debit Card</div>
+              <div onClick={()=> setPaymentMethod('TNG')} style={{ backgroundColor: paymentMethod === 'TNG' ? 'grey' : 'white' }}>TNG E-Wallet</div>
+              <div onClick={()=> setPaymentMethod('7-11')} style={{ backgroundColor: paymentMethod === 'cod' ? 'grey' : 'white' }}>Cash Payment at 7-11</div>
             </div>
 
           </div>

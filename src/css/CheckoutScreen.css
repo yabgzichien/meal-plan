@@ -65,7 +65,7 @@
 
 .paymentMethodSelections > div{
     padding: 5px;
-    border: 2px solid black;
+    border: 1px solid rgb(120, 120, 120);
     display: inline;
     cursor: pointer;
 }
