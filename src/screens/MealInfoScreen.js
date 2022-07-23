@@ -180,7 +180,7 @@ const MealInfoScreen = () => {
       <button className='addToYourPlan' > Add to Cart </button>
 
       </div>
-        <CommentSection itemName={mealObj.strMeal}  />
+        <CommentSection itemName={mealObj?.strMeal}  />
     </div>
     </>
   )

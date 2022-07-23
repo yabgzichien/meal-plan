@@ -103,3 +103,40 @@ p{
     cursor: pointer;
     margin: 10px;
 }
+
+.commentContainer{
+    background-color: rgb(231, 231, 231);
+    padding: 20px;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.commentInfoContainer{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-left: 20px;
+}
+
+.commentMsgContainer{
+    width: 100%;
+    padding: 10px;
+}
+
+.likeContainer{
+    display: flex;
+    margin-left: 20px;
+    margin-top: 12px;
+}
+
+.commentUsername{
+    margin-left: 20px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.likeInfoContainer{
+    margin: 0 10px;
+}

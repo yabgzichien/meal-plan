@@ -59,7 +59,7 @@ const Home = () => {
       if(randomIngredient.length === 0){
         for(let i = 0; i < 6; i++){
           await axios.get('https://www.themealdb.com/api/json/v1/1/list.php?i=list').then(res=>{
-             const randomIngredients = res.data.meals[Math.floor(Math.random()* 606)]
+             const randomIngredients = res.data.meals[Math.floor(Math.random()* 300)]
              randomizeIngredients.push(randomIngredients)
            })
          }

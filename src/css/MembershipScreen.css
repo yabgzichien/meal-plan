@@ -22,3 +22,25 @@
     flex-direction: column;
 
 }
+
+.membershipBlock{
+    display: flex;
+    justify-content:center;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    padding: 30px;
+    background-color: rgba(255, 255, 255);
+    min-width: 70%;
+    min-height: 300px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.membershipTitleContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid black;
+    padding: 10px;
+}

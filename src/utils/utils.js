@@ -1,7 +1,15 @@
 import { db } from "../firebase";
-import { addDoc, collection, getDocs, getDoc, doc, setDoc, deleteDoc, serverTimestamp } from "firebase/firestore";
+import { addDoc, collection, getDocs, getDoc, doc, setDoc, deleteDoc, serverTimestamp, updateDoc } from "firebase/firestore";
 
-
+const likeComment = async (docId, itemName, initialValue, addValue = 1, type = 'like') =>{
+    if(type === 'like'){
+        const docRef = doc(db, 'comments', itemName, 'comments', docId)
+        await updateDoc(docRef, {likes: initialValue += addValue})
+    }else{
+        const docRef = doc(db, 'comments', itemName, 'comments', docId)
+        await updateDoc(docRef, {dislikes: initialValue += addValue})
+    }
+}
 
 const submitComments = async (comment, pfp, username, itemName) =>{ 
     const data = {
@@ -9,7 +17,9 @@ const submitComments = async (comment, pfp, username, itemName) =>{
         pfp,
         comment,
         time: serverTimestamp(),
-        replies: []
+        likes: 0,
+        dislikes: 0,
+        replies: [],
     }
     await addDoc(collection(db, 'comments', itemName, 'comments'), data )
 }
@@ -81,4 +91,4 @@ const getUserData = async (uid) =>{
 
 
 
-export { addToPlan, fetchPlans, getUserData, deletePlan, addToCart, fetchCarts, deleteCarts, sumTotalPrice, submitComments }
+export { addToPlan, fetchPlans, getUserData, deletePlan, addToCart, fetchCarts, deleteCarts, sumTotalPrice, submitComments, likeComment }
