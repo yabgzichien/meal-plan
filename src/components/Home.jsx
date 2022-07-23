@@ -42,13 +42,14 @@ const Home = () => {
     // make a less time complexity fetch
     const fetchRandom = async() =>{
       if(meals.length === 0){
-        for(let i = 0; i < 5; i++)
+        for(let i = 0; i < 10; i++)
         await axios.get('https://www.themealdb.com/api/json/v1/1/random.php').then(res=>{
             randomizeMeals.push(res.data.meals[0])
+            setMeals(randomizeMeals)
+            setLoadingRandomMeals(false)
         })
 
         setMeals(randomizeMeals)
-        setLoadingRandomMeals(false)
       }else{
         setLoadingRandomMeals(false)
         console.log(meals)
@@ -61,10 +62,11 @@ const Home = () => {
           await axios.get('https://www.themealdb.com/api/json/v1/1/list.php?i=list').then(res=>{
              const randomIngredients = res.data.meals[Math.floor(Math.random()* 300)]
              randomizeIngredients.push(randomIngredients)
+             setRandomIngredient(randomizeIngredients)
+             setLoadingRandomIngre(false)
            })
          }
          setRandomIngredient(randomizeIngredients)
-         setLoadingRandomIngre(false)
       }else{
         setLoadingRandomIngre(false)
       }
@@ -73,16 +75,17 @@ const Home = () => {
 
   const fetchPopularIngredients = async() =>{
     if(popularIngre.length === 0){
-      for(let i = 0; i < 4; i++){
+      for(let i = 0; i < 7; i++){
         await axios.get('https://www.themealdb.com/api/json/v1/1/list.php?i=list').then(res=>{
           popularIngredients.push(res.data.meals[i])
+          setPopularIngre(popularIngredients)
+          setLoadingPopularIngre(false)      
         }).catch(err=>{
           alert(err.message)
         })
       }
   
       setPopularIngre(popularIngredients)
-      setLoadingPopularIngre(false)      
     }else{
       setLoadingPopularIngre(false)
     }
