@@ -53,3 +53,7 @@
      margin: 0 3px;
      cursor: pointer;
  }
+
+ .homething{
+    display: flex;
+ }

@@ -12,6 +12,7 @@ import CountrySearch from './CountrySearch'
 
 import CircularProgress from '@mui/material/CircularProgress';
 import { useHistory } from 'react-router-dom'
+import SideBar from './SideBar'
 
 const Home = () => {
 
@@ -45,8 +46,8 @@ const Home = () => {
         for(let i = 0; i < 10; i++)
         await axios.get('https://www.themealdb.com/api/json/v1/1/random.php').then(res=>{
             randomizeMeals.push(res.data.meals[0])
-            setMeals(randomizeMeals)
             setLoadingRandomMeals(false)
+            setMeals(randomizeMeals)
         })
 
         setMeals(randomizeMeals)
@@ -124,7 +125,39 @@ const Home = () => {
       <div className='homeMemberReminderContainer'>
         <h2> Get your membership now for only RM20 to get free delivery on all orders </h2>
       </div>
+   
 
+      <div className='alphabetsContainer'>
+          <div className='alphabets'>
+            <button onClick={()=> history.push('/alphabet/a')} className='alphabet' >A</button>
+            <button onClick={()=> history.push('/alphabet/b')} className='alphabet' >B</button>
+            <button onClick={()=> history.push('/alphabet/c')} className='alphabet' >C</button>
+            <button onClick={()=> history.push('/alphabet/d')} className='alphabet' >D</button>
+            <button onClick={()=> history.push('/alphabet/e')} className='alphabet' >E</button>
+            <button onClick={()=> history.push('/alphabet/f')} className='alphabet' >F</button>
+            <button onClick={()=> history.push('/alphabet/g')} className='alphabet' >G</button>
+            <button onClick={()=> history.push('/alphabet/h')} className='alphabet' >H</button>
+            <button onClick={()=> history.push('/alphabet/i')} className='alphabet' >I</button>
+            <button onClick={()=> history.push('/alphabet/j')} className='alphabet' >J</button>
+            <button onClick={()=> history.push('/alphabet/k')} className='alphabet' >K</button>
+            <button onClick={()=> history.push('/alphabet/l')} className='alphabet' >L</button>
+            <button onClick={()=> history.push('/alphabet/m')} className='alphabet' >M</button>
+            <button onClick={()=> history.push('/alphabet/n')} className='alphabet' >N</button>
+            <button onClick={()=> history.push('/alphabet/o')} className='alphabet' >O</button>
+            <button onClick={()=> history.push('/alphabet/p')} className='alphabet' >P</button>
+            <button onClick={()=> history.push('/alphabet/q')} className='alphabet' >Q</button>
+            <button onClick={()=> history.push('/alphabet/r')} className='alphabet' >R</button>
+            <button onClick={()=> history.push('/alphabet/s')} className='alphabet' >S</button>
+            <button onClick={()=> history.push('/alphabet/t')} className='alphabet' >T</button>
+            <button onClick={()=> history.push('/alphabet/u')} className='alphabet' >U</button>
+            <button onClick={()=> history.push('/alphabet/v')} className='alphabet' >V</button>
+            <button onClick={()=> history.push('/alphabet/w')} className='alphabet' >W</button>
+            <button onClick={()=> history.push('/alphabet/x')} className='alphabet' >X</button>
+            <button onClick={()=> history.push('/alphabet/y')} className='alphabet' >Y</button>
+            <button onClick={()=> history.push('/alphabet/z')} className='alphabet' >Z</button>
+          </div>
+        
+        </div>
 
       {/* RandomMeals */}
       { !loadingRandomMeals ? 
@@ -210,41 +243,6 @@ const Home = () => {
         </div> 
         } 
 
-
-        <div className='alphabetsContainer'>
-          <h3>Alphabet</h3>
-          <div className='alphabets'>
-            <button onClick={()=> history.push('/alphabet/a')} className='alphabet' >A</button>
-            <button onClick={()=> history.push('/alphabet/b')} className='alphabet' >B</button>
-            <button onClick={()=> history.push('/alphabet/c')} className='alphabet' >C</button>
-            <button onClick={()=> history.push('/alphabet/d')} className='alphabet' >D</button>
-            <button onClick={()=> history.push('/alphabet/e')} className='alphabet' >E</button>
-            <button onClick={()=> history.push('/alphabet/f')} className='alphabet' >F</button>
-            <button onClick={()=> history.push('/alphabet/g')} className='alphabet' >G</button>
-            <button onClick={()=> history.push('/alphabet/h')} className='alphabet' >H</button>
-            <button onClick={()=> history.push('/alphabet/i')} className='alphabet' >I</button>
-            <button onClick={()=> history.push('/alphabet/j')} className='alphabet' >J</button>
-            <button onClick={()=> history.push('/alphabet/k')} className='alphabet' >K</button>
-            <button onClick={()=> history.push('/alphabet/l')} className='alphabet' >L</button>
-            <button onClick={()=> history.push('/alphabet/m')} className='alphabet' >M</button>
-            <button onClick={()=> history.push('/alphabet/n')} className='alphabet' >N</button>
-            <button onClick={()=> history.push('/alphabet/o')} className='alphabet' >O</button>
-            <button onClick={()=> history.push('/alphabet/p')} className='alphabet' >P</button>
-            <button onClick={()=> history.push('/alphabet/q')} className='alphabet' >Q</button>
-            <button onClick={()=> history.push('/alphabet/r')} className='alphabet' >R</button>
-            <button onClick={()=> history.push('/alphabet/s')} className='alphabet' >S</button>
-            <button onClick={()=> history.push('/alphabet/t')} className='alphabet' >T</button>
-            <button onClick={()=> history.push('/alphabet/u')} className='alphabet' >U</button>
-            <button onClick={()=> history.push('/alphabet/v')} className='alphabet' >V</button>
-            <button onClick={()=> history.push('/alphabet/w')} className='alphabet' >W</button>
-            <button onClick={()=> history.push('/alphabet/x')} className='alphabet' >X</button>
-            <button onClick={()=> history.push('/alphabet/y')} className='alphabet' >Y</button>
-            <button onClick={()=> history.push('/alphabet/z')} className='alphabet' >Z</button>
-          </div>
-        
-        </div>
-
-          
     </div>
     </>
   )

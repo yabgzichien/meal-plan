@@ -38,6 +38,7 @@ import Footer from './components/Footer'
 import { ParallaxProvider } from 'react-scroll-parallax';
 import CartScreens from './screens/CartScreens';
 import CartsContext from './CartsContext';
+import SideBar from './components/SideBar';
 
 function App() {
   //const [search, setSearch] = useState('')
@@ -66,49 +67,55 @@ function App() {
       <UserContext.Provider value={{userObj, setUserObj}}>
     <Router>
       {user ? 
-      
-      <PlanContext.Provider value={{plans, setPlans}}>
-      <CartsContext.Provider value={{carts, setCarts}} >
-      <Switch>
-        <Route path='/checkout'>
-          <CheckoutScreens />
-        </Route>
-        <Route path='/cart'>
-          <CartScreens />
-        </Route>
-        <Route path='/membership'>
-          <MembershipScreen />
-        </Route>
-        <Route path='/hjkhjk'>
-          <EastherScreen />
-        </Route>
-        <Route path='/plan'>
-          <PlanScreen />
-        </Route>
-        <Route path='/category/:search'>
-          <CategorySearchScreen />
-        </Route>
-        <Route path='/search/:search'>
-          <SearchScreen />
-        </Route>
-        <Route path='/info/:id'>
-          <MealInfoScreen />
-        </Route>
-        <Route path='/ingredients/:ingre'>
-          <IngreSearchScreen />
-        </Route>
-        <Route path='/countries/:country' > 
-          <CountrySearchScreen />
-        </Route>
-        <Route path='/alphabet/:char'>
-          <AlphabetSearchScreen />
-        </Route>
-        <Route path='/'>
-          <HomeScreen auth={true} />
-        </Route>
-      </Switch>
-      </CartsContext.Provider>
-      </PlanContext.Provider>
+      <>
+      <SideBar />
+
+      <div style={{marginLeft:'5rem'}}>
+
+        <PlanContext.Provider value={{plans, setPlans}}>
+        <CartsContext.Provider value={{carts, setCarts}} >
+        <Switch>
+          <Route path='/checkout'>
+            <CheckoutScreens />
+          </Route>
+          <Route path='/cart'>
+            <CartScreens />
+          </Route>
+          <Route path='/membership'>
+            <MembershipScreen />
+          </Route>
+          <Route path='/hjkhjk'>
+            <EastherScreen />
+          </Route>
+          <Route path='/plan'>
+            <PlanScreen />
+          </Route>
+          <Route path='/category/:search'>
+            <CategorySearchScreen />
+          </Route>
+          <Route path='/search/:search'>
+            <SearchScreen />
+          </Route>
+          <Route path='/info/:id'>
+            <MealInfoScreen />
+          </Route>
+          <Route path='/ingredients/:ingre'>
+            <IngreSearchScreen />
+          </Route>
+          <Route path='/countries/:country' > 
+            <CountrySearchScreen />
+          </Route>
+          <Route path='/alphabet/:char'>
+            <AlphabetSearchScreen />
+          </Route>
+          <Route path='/'>
+            <HomeScreen auth={true} />
+          </Route>
+        </Switch>
+        </CartsContext.Provider>
+        </PlanContext.Provider>
+      </div>
+      </>
        :
         <Switch>       
             <Route path='/login'>
