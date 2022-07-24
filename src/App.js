@@ -39,6 +39,7 @@ import { ParallaxProvider } from 'react-scroll-parallax';
 import CartScreens from './screens/CartScreens';
 import CartsContext from './CartsContext';
 import SideBar from './components/SideBar';
+import AllIngredientsScreen from './screens/AllIngredientsScreen';
 
 function App() {
   //const [search, setSearch] = useState('')
@@ -75,6 +76,9 @@ function App() {
         <PlanContext.Provider value={{plans, setPlans}}>
         <CartsContext.Provider value={{carts, setCarts}} >
         <Switch>
+          <Route path='/allingredients'>
+            <AllIngredientsScreen />
+          </Route>
           <Route path='/checkout'>
             <CheckoutScreens />
           </Route>

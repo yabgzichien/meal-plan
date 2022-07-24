@@ -46,11 +46,10 @@ const Home = () => {
         for(let i = 0; i < 10; i++)
         await axios.get('https://www.themealdb.com/api/json/v1/1/random.php').then(res=>{
             randomizeMeals.push(res.data.meals[0])
-            setLoadingRandomMeals(false)
-            setMeals(randomizeMeals)
-        })
-
+          })
+          
         setMeals(randomizeMeals)
+        setLoadingRandomMeals(false)
       }else{
         setLoadingRandomMeals(false)
         console.log(meals)
@@ -63,15 +62,13 @@ const Home = () => {
           await axios.get('https://www.themealdb.com/api/json/v1/1/list.php?i=list').then(res=>{
              const randomIngredients = res.data.meals[Math.floor(Math.random()* 300)]
              randomizeIngredients.push(randomIngredients)
-             setRandomIngredient(randomizeIngredients)
-             setLoadingRandomIngre(false)
-           })
-         }
-         setRandomIngredient(randomizeIngredients)
+            })
+          }
+          setRandomIngredient(randomizeIngredients)
+          setLoadingRandomIngre(false)
       }else{
         setLoadingRandomIngre(false)
       }
-
   }
 
   const fetchPopularIngredients = async() =>{
@@ -79,14 +76,13 @@ const Home = () => {
       for(let i = 0; i < 7; i++){
         await axios.get('https://www.themealdb.com/api/json/v1/1/list.php?i=list').then(res=>{
           popularIngredients.push(res.data.meals[i])
-          setPopularIngre(popularIngredients)
-          setLoadingPopularIngre(false)      
         }).catch(err=>{
           alert(err.message)
         })
       }
-  
+      
       setPopularIngre(popularIngredients)
+      setLoadingPopularIngre(false)      
     }else{
       setLoadingPopularIngre(false)
     }
@@ -162,7 +158,7 @@ const Home = () => {
       {/* RandomMeals */}
       { !loadingRandomMeals ? 
         <div className='mealsContainerBox'>
-          <h3>Random Meals</h3>
+          <h3>Recommended Meals</h3>
           <div className='randomMeals'>
             
             {
@@ -203,7 +199,7 @@ const Home = () => {
 
         { !loadingRandomIngre ? 
         <div className='mealsContainerBox'>
-          <h3>Random Ingredients</h3>
+          <h3>Recommended Ingredients</h3>
           <div className='randomMeals'>
             
             { 

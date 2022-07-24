@@ -4,8 +4,11 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LoyaltyIcon from '@mui/icons-material/Loyalty';
 import EggIcon from '@mui/icons-material/Egg';
 import RamenDiningIcon from '@mui/icons-material/RamenDining';
+import { useHistory } from 'react-router-dom';
 
 const SideBar = () => {
+
+  const history = useHistory()
 
   return (
   <nav className="navbar">
@@ -54,20 +57,25 @@ const SideBar = () => {
       </li>
 
       <li className="nav-item">
-        <a href="#" className="nav-link">
+        <a onClick={()=> history.push('/allingredients')} className="nav-link">
             <EggIcon style={icons} />
-          <span className="link-text">All Ingredients</span>
+          <span className="link-text">All Ingrdients</span>
         </a>
       </li>
 
       <li className="nav-item">
-        <a href="#" className="nav-link">
+        <a href="https://www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast" target="_blank" className="nav-link">
             <RamenDiningIcon style={icons} />
-          <span className="link-text">All Meals</span>
+          <span className="link-text">Meals Source</span>
         </a>
       </li>
 
-        <li></li>
+      <li className="nav-item">
+        <a href="https://www.themealdb.com/api.php" target="_blank" className="nav-link">
+            <img src='https://raw.githubusercontent.com/zag2me/script.screensaver.themealdb/master/icon.png' style={{width: '80px'}} />
+          <span className="link-text">The MealsDB</span>
+        </a>
+      </li>
     </ ul>
   </nav>
   )

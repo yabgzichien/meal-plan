@@ -1,0 +1,34 @@
+.allIngredientsMainContainer{
+    background-image: url('../../public/food1.jpg');
+    min-height: 120vh;
+}
+
+.allIngredientsBox{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    padding: 20px 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 30px;
+}
+
+.allIngredientsTitle{
+    background-color: rgba(255, 255, 255, 0.7);
+    padding:30px;
+    display: flex;
+    justify-content:center;
+}
+
+.filterOptions{
+    border-radius: 20px;
+    border: 1px solid black;
+    padding: 10px;
+    cursor:pointer;
+    transition: 0.3s;
+}
+
+.filterOptions:hover{
+    background-color: rgb(182, 182, 182);
+}

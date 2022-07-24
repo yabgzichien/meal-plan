@@ -1,6 +1,6 @@
 .ingredientsContainer{
     display: flex;
-    flex-direction:  column-reverse;
+    flex-direction:  column;
     justify-content:center;
     align-items: center;
     cursor: pointer;
@@ -8,5 +8,18 @@
 }
 
 .ingredientsContainer:hover{
+    color: blue;
+}
+
+.ingredientMainContainer{
+    text-decoration: none;
+    color: black;
+    margin: 30px;
+    border-bottom: 2px solid black;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.ingredientMainContainer:hover{
     color: blue;
 }

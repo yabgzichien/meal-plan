@@ -9,6 +9,7 @@
     width: 95%;
     position: fixed;
     z-index: 2;
+    padding-right: 100px;
 }
 
 .membershipBtn{
@@ -16,6 +17,9 @@
     border-radius: 10px;
     cursor: pointer;
     border-bottom: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .membershipBtn:hover{

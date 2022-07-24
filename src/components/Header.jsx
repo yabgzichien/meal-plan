@@ -15,6 +15,8 @@ import MenuItem from '@mui/material/MenuItem';
 import LogoutIcon from '@mui/icons-material/Logout';
 import Badge from '@mui/material/Badge';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import LoyaltyIcon from '@mui/icons-material/Loyalty';
+
 
 import { Link, useHistory } from 'react-router-dom'
 
@@ -139,6 +141,7 @@ const Header = ({ isAuth }) => {
         <div className='auth'>
 
           <div onClick={()=> history.push('./membership')} className='membershipBtn'>
+            <LoyaltyIcon />
             <p>Membership</p>
           </div>
 
@@ -182,7 +185,7 @@ const Header = ({ isAuth }) => {
         </div>
        
     </div> :
-    <div className='headerContainer'>
+    <div className='headerContainer' style={{width: '100%'}}>
           <Link to='/' style={{textDecoration: 'none', color: 'black', display: 'flex', alignItems: 'center'}}>
             <img src='/kitchendelight.png' style={{width: '70px', height: '70px', borderRadius: '20px'}} alt="logo" />
             <h2 className='companyName'>Kitchen Delight</h2>

@@ -1,15 +1,14 @@
 import React from 'react'
 import '../css/Ingredients.css'
 
-import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 const Ingredients = ({ name }) => {
-   
+  const history = useHistory() 
+
   return (
-    <Link to={`/ingredients/${name}`} style={{textDecoration: 'none', color: 'black'}}>
-    <div className='ingredientsContainer'>
-       <p>{name}</p>
-    </div>       
+    <div onClick={()=> history.push(`/ingredients/${name}`)} className='ingredientMainContainer' >
+    
     
     {
       name === "Sweet Potatoes" ?
@@ -18,7 +17,12 @@ const Ingredients = ({ name }) => {
       
     }
 
-    </Link>
+      <div className='ingredientsContainer'>
+        <p>{name}</p>
+        <p style={{textAlign: 'center'}}> RM 15/kg</p>
+      </div>
+
+    </div>
   )
 }
 
