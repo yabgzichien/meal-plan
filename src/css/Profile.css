@@ -1,0 +1,29 @@
+.profileMainContainer{
+    background-image: url('../../public/food1.jpg');
+    min-height: 120vh;
+}
+
+.profileContainer{
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.pfpImg{
+    width: 120px;
+}
+
+.profileUsername{
+    text-decoration: underline;
+    text-align: center;
+    margin: 10px;
+}
+
+.profileInfoContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

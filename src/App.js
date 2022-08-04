@@ -40,6 +40,9 @@ import CartScreens from './screens/CartScreens';
 import CartsContext from './CartsContext';
 import SideBar from './components/SideBar';
 import AllIngredientsScreen from './screens/AllIngredientsScreen';
+import AllMealsScreen from './screens/AllMealsScreen';
+import Profile from './screens/Profile';
+import LoadingScreen from './screens/LoadingScreen';
 
 function App() {
   //const [search, setSearch] = useState('')
@@ -56,14 +59,16 @@ function App() {
 
   const [user, loading] = useAuthState(auth)
 
+  const [ingredients, setIngredients] = useState([])
+
   const searchContextValue = {
-    meals, setMeals, randomIngredient, setRandomIngredient, popularIngre, setPopularIngre,
+    meals, setMeals, randomIngredient, setRandomIngredient, popularIngre, setPopularIngre, ingredients, setIngredients,
     countriesName, setCountriesName
   }
 
   return (
     <ParallaxProvider>
-    <>{ loading ? <CircularProgress /> :
+    <>{ loading ? <LoadingScreen /> :
     <SearchContext.Provider value={searchContextValue} >
       <UserContext.Provider value={{userObj, setUserObj}}>
     <Router>
@@ -76,6 +81,12 @@ function App() {
         <PlanContext.Provider value={{plans, setPlans}}>
         <CartsContext.Provider value={{carts, setCarts}} >
         <Switch>
+          <Route path='/profile'>
+            <Profile />
+          </Route>
+          <Route path='/allmeals'>
+            <AllMealsScreen />
+          </Route>
           <Route path='/allingredients'>
             <AllIngredientsScreen />
           </Route>

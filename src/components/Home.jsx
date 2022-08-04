@@ -12,7 +12,6 @@ import CountrySearch from './CountrySearch'
 
 import CircularProgress from '@mui/material/CircularProgress';
 import { useHistory } from 'react-router-dom'
-import SideBar from './SideBar'
 
 const Home = () => {
 

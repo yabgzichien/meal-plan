@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import '../css/CheckoutScreen.css'
 import Header from '../components/Header'
 import LocationOnIcon from '@mui/icons-material/LocationOn';
@@ -7,8 +7,11 @@ import { onSnapshot, collection } from 'firebase/firestore'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth, db } from '../firebase';
 import { Dialog, Alert } from '@mui/material';
+import UserContext from '../UserContext';
 
 const CheckoutScreens = () => {
+
+  const { userObj, setUserObj } = useContext(UserContext)
 
   const [user] = useAuthState(auth)
 
@@ -84,7 +87,10 @@ const CheckoutScreens = () => {
           </div>
           <div className='paymentDetailsContainer'>
            <p>Delivery Fee</p>
-           <p>RM 5</p>
+
+           { userObj?.member ?
+             <p>RM 0</p> : <p>RM 5</p>
+           }
           </div>
           <div className='paymentDetailsContainer paymentSubtotal'>
            <p>Subtotal</p>

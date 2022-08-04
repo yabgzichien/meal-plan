@@ -1,15 +1,21 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import '../css/AllIngredientsScreen.css'
 import Header from '../components/Header'
 import Ingredients from '../components/Ingredients'
 import axios from 'axios'
+import Loading from '../components/Loading'
+import SearchContext from '../SearchContext'
 
 const AllIngredientsScreen = () => {
 
-  const [ingredients, setIngredients] = useState([])
+  const [loading, setLoading] = useState(false)
+
+  const { ingredients, setIngredients } = useContext(SearchContext)
+
   let offset = 10
 
   const fetchIngredients = async() =>{
+        setLoading(true)
         let tempIngredientsArr = []
         console.log("spread1" , ...tempIngredientsArr)
         offset += 10
@@ -23,7 +29,7 @@ const AllIngredientsScreen = () => {
         }
         
         setIngredients(oldIngredients => { return  [...oldIngredients, ...tempIngredientsArr] }) 
-
+        setLoading(false)
 
   }
 
@@ -56,7 +62,13 @@ const AllIngredientsScreen = () => {
               <Ingredients name={ingre?.strIngredient} key={index} />
             )) 
           }
+
+
         </div>
+        { loading ? 
+
+            <Loading />: null
+          }
       </div>
     </>
   )

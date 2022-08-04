@@ -1,6 +1,15 @@
 import { db } from "../firebase";
 import { addDoc, collection, getDocs, getDoc, doc, setDoc, deleteDoc, serverTimestamp, updateDoc } from "firebase/firestore";
 
+const payMembership = async (userid) =>{
+    // update doc to member: true
+    // checkout remove delivery fee
+
+    updateDoc(doc(db, 'users', userid), { member: true })
+
+}
+
+
 const likeComment = async (docId, itemName, initialValue, addValue = 1, type = 'like') =>{
     if(type === 'like'){
         const docRef = doc(db, 'comments', itemName, 'comments', docId)
@@ -91,4 +100,4 @@ const getUserData = async (uid) =>{
 
 
 
-export { addToPlan, fetchPlans, getUserData, deletePlan, addToCart, fetchCarts, deleteCarts, sumTotalPrice, submitComments, likeComment }
+export { addToPlan, fetchPlans, getUserData, deletePlan, addToCart, fetchCarts, deleteCarts, sumTotalPrice, submitComments, likeComment, payMembership }

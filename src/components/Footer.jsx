@@ -13,7 +13,7 @@ const Footer = () => {
         </a>
       </div>
       
-      <div className='sponsorsContainer'>
+      {/* <div className='sponsorsContainer'>
           <p style={{color: 'white'}}>Thanks to our sponsors: </p>
 
           <div className='randomImageContainer'>
@@ -26,7 +26,7 @@ const Footer = () => {
             <img className='randomImg' src='https://c.tenor.com/jiiEp5VV5nMAAAAM/the-rock-the-wok.gif' />
 
           </div>
-        </div>
+        </div> */}
 
     </div>
   )

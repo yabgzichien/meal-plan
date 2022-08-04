@@ -13,8 +13,8 @@ const SideBar = () => {
   return (
   <nav className="navbar">
     <ul className="navbar-nav">
-      <li className="logo">
-        <a href="#" className="nav-link">
+      <li className="logo" >
+        <a  className="nav-link" onClick={()=> history.push('/')} style={{cursor: 'pointer'}}>
           <span className="link-text logo-text">Kithcen Delight</span>
           <svg
             aria-hidden="true"
@@ -43,14 +43,14 @@ const SideBar = () => {
       </li>
 
       <li className="nav-item">
-        <a href="#" className="nav-link">
+        <a onClick={()=> history.push('/profile')} className="nav-link">
         <AccountCircleIcon style={icons} />
         <span className="link-text">Profile</span>
         </a>
       </li>
 
       <li className="nav-item">
-        <a href="#" className="nav-link">
+        <a onClick={()=> history.push('/membership')} className="nav-link">
           <LoyaltyIcon style={icons} />
           <span className="link-text">Membership</span>
         </a>
@@ -64,9 +64,9 @@ const SideBar = () => {
       </li>
 
       <li className="nav-item">
-        <a href="https://www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast" target="_blank" className="nav-link">
+        <a onClick={() => history.push('/allmeals')} className="nav-link">
             <RamenDiningIcon style={icons} />
-          <span className="link-text">Meals Source</span>
+          <span className="link-text">All Meals</span>
         </a>
       </li>
 

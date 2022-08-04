@@ -42,13 +42,10 @@ const PlanScreen = () => {
               <PlanSection name={meal.name} image={meal.image} mealId={meal.mealId} meal={meal} key={meal.mealId} />
               )):
               <div className='noPlans'>
-                <img src='https://i.ytimg.com/vi/t11WqQD6Hew/maxresdefault.jpg' />
-                <img src='https://c.tenor.com/dHCK7XkcGzUAAAAC/john-cena.gif' />
-                <img src='https://djlunatique.com/wp-content/uploads/2022/01/Website-3-1.jpg' />
-                <img  src='https://i.ytimg.com/vi/UshPQkCm1Cw/maxresdefault.jpg' />
-                <img src='https://c.tenor.com/GMUBf1Tmaq0AAAAC/china-donald-trump.gif' />
-                <img src='https://c.tenor.com/gdqQlkh_C5QAAAAM/ricardo-milos-come-here.gif' />
-                <img src='https://i.pinimg.com/originals/c6/25/90/c62590c1756680060e7c38011cd704b5.jpg' />
+                
+
+              dysahljk
+
 
               </div>
           }

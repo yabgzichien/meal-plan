@@ -96,7 +96,7 @@ const Header = ({ isAuth }) => {
 
   return (
     <>
-    { isAuth ?
+    { isAuth ? 
     <div className='headerContainer'>
         <div className='nameContainer'>
           <Link to='/' style={{textDecoration: 'none', color: 'black', display: 'flex', alignItems: 'center'}}>
@@ -140,7 +140,7 @@ const Header = ({ isAuth }) => {
       </Dialog>
         <div className='auth'>
 
-          <div onClick={()=> history.push('./membership')} className='membershipBtn'>
+          <div onClick={()=> history.push('/membership')} className='membershipBtn'>
             <LoyaltyIcon />
             <p>Membership</p>
           </div>
@@ -178,6 +178,9 @@ const Header = ({ isAuth }) => {
               <p className='menuOptions' onClick={logOut} >Logout <LogoutIcon /> </p>
             </MenuItem>
             <MenuItem>
+              <p className='menuOptions' onClick={()=> history.push('/profile')} > Profile  </p>
+            </MenuItem>
+            <MenuItem>
             <p className='menuOptions' onClick={()=> history.push('/hjkhjk')} >Random Stuff </p>
             </MenuItem>
 
@@ -193,9 +196,10 @@ const Header = ({ isAuth }) => {
 
         <div className='auth'>
           <div className='authBtnContainer'>
-            <div className='authHeaderBtn'  onClick={()=> history.push('/login')}>
-              Membership
-            </div>
+          <div onClick={()=> history.push('/login')} className='membershipBtn'>
+            <LoyaltyIcon />
+            <p>Membership</p>
+          </div>
             <div className='authHeaderBtn' onClick={()=> history.push('/login')}>
               <img className='randomHeaderImg' src='https://media2.giphy.com/media/cEsoz6GAoTubm/giphy.gif'/>
               <h3 className='authBtn'> Login </h3>
